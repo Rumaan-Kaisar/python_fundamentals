@@ -79,6 +79,13 @@ multi line
 
 
 
+# Concatenation operator "+=" is used with string data-type
+# We can use +=, -+ *=, /= as shorthand form for numerical datatypes
+a += 2;
+b -+ 3
+c *= 4
+d /+ 9 
+
 #  --------------  python documentation  -------------- 
 # https://docs.python.org
 
