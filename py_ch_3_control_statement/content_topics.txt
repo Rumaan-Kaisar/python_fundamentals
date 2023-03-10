@@ -1,0 +1,20 @@
+Review on If-Elif: 
+  Conditional Statement in Python:
+    If
+    If-Else
+    If-Elif-Else
+
+Loops
+  Looping statements in Python
+    While
+    While-Else
+    For
+    For-Else
+    
+Details on Control statements
+  Loop/Conditional-control statements
+    Break
+    Continue
+    Pass
+
+The new "match-case" statement [switch?]
