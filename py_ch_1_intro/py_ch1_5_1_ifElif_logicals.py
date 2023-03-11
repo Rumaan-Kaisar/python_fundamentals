@@ -1,5 +1,9 @@
 
 # Courses: colt_py_bootcamps 60 61 62 65
+
+# Courses: colt_py_bootcamps 67 (conditionals, review on comparison operators)
+                        #    68 70 (Logical operators)
+	
             # Topics : Boolian and Conbditional Logic
                 # User input in Python
                 # Trutiness
@@ -133,3 +137,31 @@ elif color == 'pure darkness':
 else: 
 	print("YOU MONSTER!") 
 
+
+
+# More on Logical operators	
+
+city = input("Where do you live ?")
+
+if city == "savar" or city == "mirpur":
+    print("You live in Dhaka, BD.")
+else:
+    print("You live somewhere else.")
+
+
+# Logical Not
+age = 21
+# 2-8 2$ ticket
+# 65 5$ ticket
+# 10$ ticket for everyone else
+
+if not ((2 <= age <= 8) or (age >= 65)):
+    print("average people: Ticket price is $10. ")
+else:
+    print("Child or Senior")
+
+	
+	
+	
+	
+	
