@@ -1,3 +1,13 @@
+
+
+    -------|    OBJECTIVES    |-------
+    Understand what loops are and how they are useful 
+    Learn what an "iterable object" is
+    Use "for" and "while" loops to iterate over ranges and strings 
+    Learn how to control exiting a loop
+    
+    
+
 Review on If-Elif: 
   Conditional Statement in Python:
     If
