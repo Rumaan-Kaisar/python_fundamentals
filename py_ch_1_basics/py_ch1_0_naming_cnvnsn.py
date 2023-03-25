@@ -26,6 +26,12 @@ local_var_name.
 
 For more info, visit the PEP guide;
     https://peps.python.org/pep-0008/
+    
+    DO NOT PANIC !!!
+    there is a "auto PEP-8" tool: "autopep8"
+    autopep8: 
+        autometically rearranges your code accorging to PEP-style-Guide
+        Just install the module and run: 'autopep8 --in-place ugly_code.py'
 '''
 
 # python py_00_Hello.py
