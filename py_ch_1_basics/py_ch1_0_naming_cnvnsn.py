@@ -22,6 +22,10 @@ global_var_name,
 instance_var_name, 
 function_parameter_name, 
 local_var_name. 
+
+
+For more info, visit the PEP guide;
+    https://peps.python.org/pep-0008/
 '''
 
 # python py_00_Hello.py
