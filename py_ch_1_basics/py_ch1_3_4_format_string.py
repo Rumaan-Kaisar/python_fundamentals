@@ -83,3 +83,14 @@ x = 'looked'
  
 print("Misha %s and %s around"%('walked',x))
 
+
+
+# Using .format()
+first = "Venus"
+last = "Williams"
+formatted = "First Name: {}, Last Name: {}".format(first, last)
+
+# f-string , I think it's a much nicer syntax:
+first = "Venus" 
+last = "Williams"
+formatted = f"First Name: {first}, Last Name: {last}"
