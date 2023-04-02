@@ -49,6 +49,12 @@ m = 2 * 9
 dv = 1/1
 print(f"sum = {b}, division = {dv}, multp_1 = {c}, multp_2 = {m}")
 
+
+cash = 19867324678987.99  # DON'T CHANGE THE CASH VARIABLE, divide by 5
+
+# ADD YOUR CODE BELOW:
+print(cash/5)
+
 # order of operations: P E M D A S - pranthesis, exponents, multiply, division, addition, subtract
 od_1 = 1+2*5/3
 od_2 = (1+2)*5/3
