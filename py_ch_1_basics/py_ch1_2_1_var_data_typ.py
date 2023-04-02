@@ -130,3 +130,20 @@ print(test_view.symmetric_difference(test_view_2))  # Output: frozenset({'12', '
 some_string = "olla i am a string"
 print(some_string)
 
+
+
+# Define a variable named city and set it equal to any string
+city = "Los Angeles"
+
+# Define a variable named price and set it equal to any float
+price = 5.4
+
+# Define a variable named high_score and set it equal to any int
+high_score = 100002
+
+# Define a variable named is_having_fun and set it to a Boolean value
+is_having_fun = True
+
+
+
+
