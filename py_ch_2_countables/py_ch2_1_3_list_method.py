@@ -32,7 +32,8 @@ print(ls_ex_1)
 
 
 
-# ----------|    Removing Data from a list    |----------
+
+# ----------|    Removing Data from a list: clear(), pop(), remove()    |----------
 # clear:: Remove all the items from a list
 ls_ex_2 = ['a', 'b', 'c', 6, 7, 7, 8]
 print(ls_ex_2)
@@ -53,6 +54,28 @@ ls_ex_3.remove("b")
 print(ls_ex_3)
 ls_ex_3.remove(7)
 print(ls_ex_3)
+
+# Example
+# Create a list called instructors
+instructors = []
+
+# Add the following strings to the instructors list 
+    # "Colt"
+    # "Blue"
+    # "Lisa"
+    
+instructors.extend(["Colt", "Blue", "Lisa"])
+
+# Remove the 'last' value in the list
+instructors.pop()
+
+# Remove the 'first' value in the list
+instructors.pop(0)
+
+# Add the string "Done" to the beginning of the list
+instructors.insert(0, 'Done')
+
+
 
 
 # ----------|    accessing    |----------
