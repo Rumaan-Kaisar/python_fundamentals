@@ -87,4 +87,53 @@ print(' Hellow '.join(ls_ex_4))
 
 
 
+
+# ------------|    More Examples    |------------
+# A solution using append()
+
+# Create a list called instructors
+instructors = []
+
+# Add the following strings to the instructors list 
+    # "Colt"
+    # "Blue"
+    # "Lisa"
+
+instructors.append("Colt")
+instructors.append("Blue")
+instructors.append("Lisa")
+
+
+
+# A solution using extend()
+
+# Create a list called instructors
+instructors = []
+
+# Add the following strings to the instructors list 
+    # "Colt"
+    # "Blue"
+    # "Lisa"
+    
+# Use any of the list methods we've seen to accomplish this:
+instructors.extend(["Colt", "Blue", "Lisa"])
+
+
+
+# A "grosser" solution that still technically works.  (it's grosser because it requires you to know the exact positions you want to add data to)
+
+# Create a list called instructors
+instructors = []
+
+# Add the following strings to the instructors list 
+    # "Colt"
+    # "Blue"
+    # "Lisa"
+    
+# Use any of the list methods we've seen to accomplish this:
+instructors[0] = "Colt"
+instructors[1] = "Blue"
+instructors[2] = "Lisa"
+
+
 # python py_ch2_list_method.py
