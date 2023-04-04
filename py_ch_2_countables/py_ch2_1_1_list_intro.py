@@ -41,7 +41,7 @@ print(r_list)
 nums = list(range(1,100))
 
 
-#  ------------|    Accessing list items    |------------
+# ------------|    Accessing list items    |------------
 """ 
         -ve values to count from last item.
             0       1           2
@@ -59,3 +59,22 @@ print(f"{'apple' in thislist} and {'mango' in thislist}")
 # so we can use it as a condition:
 if "apple" in thislist:
     print("apple is on us")
+
+    
+    
+ 
+# ------------|    Exercise    |------------
+# DON'T TOUCH THIS PLEASE!
+people = ["Hanna","Louisa","Claudia", "Angela","Geoffrey", "aparna"]
+# DON'T TOUCH THIS PLEASE!
+
+#Change "Hanna" to "Hannah"
+people[0] = "Hannah"
+
+#Change "Geoffrey" to "Jeffrey"
+people[4] = "Jeffrey"
+
+#Change "aparna" to "Aparna" (capitalize it)
+people[-1] = "Aparna"  
+
+
