@@ -18,6 +18,9 @@ print(thislist)
 # List items can be of any data type, it can contain different data types
 list1 = ["abc", 34, True, 40, "male"]
 
+# Define my_stuff
+my_stuff = [1, 2, 3, 4, "Camera", 2.5]
+
 # list() Constructor: It is also possible to use the list() constructor when creating a new list.
 thislist = list(("apple", "banana", "cherry")) # note the double round-brackets
 print(thislist)
@@ -29,12 +32,13 @@ thislist = ["apple", "banana", "cherry"]
 print(len(thislist))
 
 
-# Converting/Turning a 'sequence' into a 'list'
+# ------------|    Converting/Turning a 'sequence' into a 'list'    |------------
 r = range(1, 11)
 r_list = list(r)
 print(r_list)
 
-
+# Define a list of numbers called 'nums'
+nums = list(range(1,100))
 
 
 #  ------------|    Accessing list items    |------------
