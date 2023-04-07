@@ -1,5 +1,5 @@
 
-# Courses: colt_py_bootcamps    111
+# Courses: colt_py_bootcamps    111,  112
 
 # --------------|    LIST COMPREHENSION    |--------------
 # It is applied to many Data-Structures: Dictionaries, Sets, Tuples, Generators
