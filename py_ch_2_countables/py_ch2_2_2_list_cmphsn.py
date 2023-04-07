@@ -52,3 +52,92 @@ colors = ['red',	'orange',	'yellow',	'green',	'blue',	'indigo']
 [color.upper() for color in colors]     # ['RED', 'ORANGE', 'YELLOW', 'GREEN', 'BLUE', 'INDIGO']
 
 
+
+
+
+
+
+# --------------|    LIST COMPREHENSION with Logic    |--------------
+# combine conditions at the end of the LIST COMPREHENSION
+# using 'if'
+numbers = [1, 2, 3, 4, 5, 6]
+evens = [num for num in numbers if num%2 == 0]
+print(evens)    # [2, 4, 6]
+odds = [num for num in numbers if num%2 != 0]
+print(odds)     # [1, 3, 5]
+
+# using 'if-else'
+[num*2 if num%2 == 0 else num/2 for num in numbers] # [0.5, 4, 1.5, 8, 2.5, 12]
+# i.e if even, num*2, otherwise num/2
+
+# using 'in' to combne the condition: following 2 'in's are used
+with_vowels = "This is so much fun!"
+''.join(char for char in with_vowels if char not in "aeiou" )   # "Ths s s mch fn!"
+        # ListComprehension iterable: char in with_vowels
+        # ListComprehension's condition iterable: char not in "aeiou"
+# following also works with []
+''.join([char for char in with_vowels if char not in "aeiou"])
+
+# Note: join(), takes one argument- as a list
+" ".join(['OMG.', 'Oh no.'])
+"__".join(['OMG.', 'Oh no.'])
+
+[char for char in with_vowels if char not in "aeiou"]
+# ['T', 'h', 's', ' ', 's', ' ', 's', ' ', 'm', 'c', 'h', ' ', 'f', 'n', '!']
+
+
+# --------------|    More practice o List Comprehension    |--------------
+[person[0] for person in ["Elie", "Tim", "Matt"]]   # ['E', 'T', 'M']
+[val for val in [1,2,3,4,5,6] if val%2 == 0]    # [2, 4, 6]
+
+# Using good old manual loops:
+answer = []
+for person in ["Elie", "Tim", "Matt"]:
+    answer.append(person[0])
+print(answer)   # ['E', 'T', 'M']
+
+answer2 = []
+for num in [1,2,3,4,5,6]:
+    if num % 2 == 0:
+        answer2.append(num)
+print(answer2)  # [2, 4, 6]
+
+
+
+
+# Reversing example
+
+# Using list comprehensions(the more Pythonic way): 
+answer = [val for val in [1,2,3,4] if val in [3,4,5,6]]
+#the slice [::-1] is a quick way to reverse a string
+answer2 = [val[::-1].lower() for val in ["Elie", "Tim", "Matt"]]
+
+# Without list comprehensions, things are a bit longer:
+# find common items
+answer = []
+for x in [1,2,3,4]:
+    if x in [3,4,5,6]:
+        answer.append(x)
+print(answer)   # [3, 4]
+
+answer2 = []
+for name in ["Elie", "Tim", "Matt"]:
+    answer2.append(name[::-1].lower())
+print(answer2)  # ['eile', 'mit', 'ttam']
+
+# Nice and short using a list comprehension 12's products: 
+answer = [val for val in range(1,101) if val % 12 == 0]
+
+
+
+
+# Elminate vowels
+# Using a string (preferable solution):
+[char for char in "amazing" if char not in "aeiou"] 
+
+# Using a list:
+[char for char in "amazing" if char not in ["a", "e", "i", "o", "u"]] 
+
+
+
+
