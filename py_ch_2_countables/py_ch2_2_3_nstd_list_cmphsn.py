@@ -39,6 +39,12 @@ print(board2) # [[1, 2], [3, 4], [5, 6]]
 [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
 
 # ----------|    Recap    |----------
-
+    # lists are fundamental data structures for ordered information
+    # lists can be include any type, even other lists! 
+    # we can modify lists using a variety of methods 
+    # slices are quite useful when making copies of lists
+    # list comprehension is used everywhere when iterating over lists, strings, ranges and even more data types!
+    # nested lists are essential for building more complex data structures like matrices, game boards and mazes
+    # swapping is quite useful when shuffling or sorting
 
 
