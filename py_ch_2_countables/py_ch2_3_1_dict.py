@@ -66,3 +66,5 @@ for itm in player.items():
 for key, val in player.items():
     print(f"key is {key} : value is {val}")
 
+
+    
