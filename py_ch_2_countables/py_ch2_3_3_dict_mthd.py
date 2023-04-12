@@ -39,7 +39,7 @@ new_user.fromkeys(range(0,11), None)
 
 
 # ----------|    get()   |----------
-# retrive "key", None instead of key-error
+# retrive values from corresponding "key", None instead of key-error
 d = dict(a=1, b=2, c=3)
 d['a']          # 1
 d.get('a')      # 1
@@ -101,3 +101,51 @@ second.update({})
 second  # {'a': 1,	'b': 2,	'c': 3,	'd': 4,	'e': 5}
 
 
+
+# Example 1: Bakery Dictionary Exercise. The following code is common to all solutions:
+# This code picks a random food item:
+from random import choice       #DON'T CHANGE!
+food = choice(["cheese pizza", "quiche","morning bun","gummy bear","tea cake"])         #DON'T CHANGE!
+
+# DON'T CHANGE THIS DICTIONARY EITHER!
+bakery_stock = {
+    "almond croissant" : 12,
+    "toffee cookie": 3,
+    "morning bun": 1,
+    "chocolate chunk cookie": 9,
+    "tea cake": 25
+}
+
+# Solution using IN: test if a value is contained in a dictionary:
+# Retrive value using in
+if food in bakery_stock:
+    print("{} left".format(bakery_stock[food]))
+else:
+    print("We don't make that")
+    
+# Solution using get(): The variable will either contain the corresponding value from the dictionary OR None.  We can write a simple conditional check:
+# Retrive value using get()
+quantity = bakery_stock.get(food)
+if quantity:
+    print("{} left".format(quantity))
+else:
+    print("we don't make that")
+    
+
+        
+# Example 2: Fromkeys Exercise, creat a dictionary by intializing following keys
+game_properties = [
+    "current_score",
+    "high_score",
+    "number_of_lives",
+    "items_in_inventory",
+    "power_ups",
+    "ammo",
+    "enemies_on_screen",
+    "enemy_kills",
+    "enemy_kill_streaks",
+    "minutes_played",
+    "notifications",
+    "achievements"
+]
+initial_game_state = dict.fromkeys(game_properties, 0)    
