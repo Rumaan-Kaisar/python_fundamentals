@@ -68,3 +68,26 @@ for key, val in player.items():
 
 
     
+# Example 1: Create a dictionary called "user_info"  and add at least 3 key value pairs to it (totally up to you what they are)
+# There is no single correct answer.  Here are 2 potential solutions:
+user_info = {"name": "Blue", "age": 10, "email": "blue@gmail.com"} 
+user_info = {"city": "Paris", "temperature": 59.0, "is_raining": True} 
+
+
+
+# Example 2: concatenate strings from the given dictionary
+    artist = {
+        "first": "Neil",
+        "last": "Young",
+    }
+    
+# concat first and last name with a space
+full_name = artist["first"] + " " + artist["last"]
+
+# Solution using the format() method:
+full_name = "{} {}".format(artist["first"], artist["last"])
+
+# F-String Solution: pay attention to our quotes in this solution!
+full_name = f"{artist['first']} {artist['last']}"
+
+
