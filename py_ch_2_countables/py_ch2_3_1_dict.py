@@ -76,10 +76,10 @@ user_info = {"city": "Paris", "temperature": 59.0, "is_raining": True}
 
 
 # Example 2: concatenate strings from the given dictionary
-    artist = {
+artist = {
         "first": "Neil",
         "last": "Young",
-    }
+}
     
 # concat first and last name with a space
 full_name = artist["first"] + " " + artist["last"]
