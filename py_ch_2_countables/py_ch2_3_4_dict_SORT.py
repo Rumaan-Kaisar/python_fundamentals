@@ -1,6 +1,26 @@
 
 # Courses: colt_py_bootcamps    133
 
+
+""" How to Sort the Dictionary by Value in Ascending or Descending Order
+Remember the sorted() method accepts a third value called reverse.
+    reverse with a value of True will arrange the sorted dictionary in descending order. """
+
+footballers_goals = {'Eusebio': 120, 'Cruyff': 104, 'Pele': 150, 'Ronaldo': 132, 'Messi': 125}
+
+sorted_footballers_by_goals = sorted(footballers_goals.items(), key=lambda x:x[1], reverse=True)
+converted_dict = dict(sorted_footballers_by_goals)
+
+print(converted_dict)
+
+# Output: {'Pele': 150, 'Ronaldo': 132, 'Messi': 125, 'Eusebio': 120, 'Cruyff': 104}
+# You can see the output is reversed because we passed reverse=True to the sorted() method.
+
+# If you don’t set reverse at all or you set its value to false, the dictionary will be arranged in ascending order. That’s the default.
+
+
+
+
 # Data modeling using 'list' and 'dictionary'
 # spotify playlist project
 
