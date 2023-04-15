@@ -47,3 +47,52 @@ instructor = {'name': 'coblt', 'city': 'san francisco', 'color': 'purple'}
 yelling_instructor = {(k.upper() if k == "color" else k) : v.upper() for k,v in instructor.items()}
 print(yelling_instructor)
 # {'name': 'COBLT', 'city': 'SAN FRANCISCO', 'COLOR': 'PURPLE'}
+
+
+
+
+# Courses: colt_py_bootcamps    135-138 (exercise)
+
+# Example 1: Create a dictionary by using two list
+    # use dictionary comprhnsn
+
+# using Dictionary comprehension:
+list1 = ["CA", "NJ", "RI"]
+list2 = ["California", "New Jersey", "Rhode Island"]
+
+answer = {list1[i]: list2[i] for i in range(0,3)}
+
+# The "advanced" solution: using zip() method
+dict(zip(list1, list2))  
+
+
+
+# Example 2: Create a dictionary from a 2D-list (list of list)
+person = [["name", "Jared"], ["job", "Musician"], ["city", "Bern"]]
+
+# method 1: If you have a "list of pairs", you can very easily turn it into a dictionary using dict() 
+answer = dict(person)
+
+# method 2: Using a dictionary comprehension and list indexes
+answer = {thing[0]: thing[1] for thing in person}
+# alternate solution:  without any references to list indexes:
+answer = {k:v for k,v in person}
+
+
+
+# Example 3: initialize using dictionary comprehension
+{char:0 for char in 'aeiou'} 
+
+# alternative: Using dict.fromkeys:
+dict.fromkeys("aeiou", 0)
+
+
+# Example 4: Use chr() on the numbers between 65 and 91:
+answer = {count: chr(count) for count in range(65,91)}
+""" {65: 'A', 66: 'B', 67: 'C', 68: 'D', 69: 'E', 70: 'F', 71: 'G', 72: 'H', 73: 'I', 74: 'J', 
+    75: 'K', 76: 'L', 77: 'M', 78: 'N', 79: 'O', 80: 'P', 81: 'Q', 82: 'R', 83: 'S', 84: 'T', 
+    85: 'U', 86: 'V', 87: 'W', 88: 'X', 89: 'Y', 90: 'Z'} """
+
+
+
+
