@@ -1,5 +1,5 @@
 
-# Courses: colt_py_bootcamps    139
+# Courses: colt_py_bootcamps    139,  140
 
 # objectives:
     # create & access
@@ -66,5 +66,46 @@ dummy_dict.items()  # returns a tuple
     # to update the dictionary values we use the Dictionary methods
 
 
+
+
+# -------------|    Tuple LOOPING and METHODS    |-------------
+# Same as list
+names_tup = ("jojo", "rabbit", "niley", "rupart")
+
+for nam in names_tup:
+    print(nam)
+
+# using while loop, printing backward
+i= len(names_tup) -1
+while(i >= 0):
+    print(names_tup[i])
+    i -= 1
+
+
+# Tuple methods: There are two tuple methods
+
+# count: number of times the value appear in a tuple
+x = (1, 2, 3, 4, 5, 6, 7, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3)
+x.count(3)  # 6
+x.count(1)  # 3
+
+# index: returns the first matching index of a found value
+x.index(3)  # 2
+x.index(5)  # 4
+x.index(8)  # value ERR
+
+
+
+# -------------|    NESTED TUPLE: Same as NESTED-LIST    |-------------
+nest_tup = (1, 2, 3, 4, 5, 6, 7, (1, 1, 2, 2), 2, (3, 3, 3), 3, 3)
+nest_tup.index((1, 1, 2, 2))
+[print(i) for i in nest_tup[7]]
+list_tup_nm = [i for i in nest_tup[7] if i]
+
+
+# Slicing is similar to list, non inclusive last 
+nest_tup[3:]    # (4, 5, 6, 7, (1, 1, 2, 2), 2, (3, 3, 3), 3, 3)
+nest_tup[0:4]    # (1, 2, 3, 4)
+nest_tup[3::2]  # using steps:  (4, 6, (1, 1, 2, 2), (3, 3, 3), 3)
 
     
