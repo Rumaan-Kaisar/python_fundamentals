@@ -109,3 +109,18 @@ nest_tup[0:4]    # (1, 2, 3, 4)
 nest_tup[3::2]  # using steps:  (4, 6, (1, 1, 2, 2), (3, 3, 3), 3)
 
     
+
+
+# ---------    Other Examples    ---------
+# 1 - Create a variable called numbers which is a tuple with the the values 1, 2, 3 and 4 inside.
+numbers = (1,2,3,4)
+
+# 2 single element tuple - Create a variable called value which is a tuple with the the value 1 inside.
+value = (1,)
+
+# 3 Making Static - Given the following variable:
+values = [10,20,30]
+# Create a variable called static_values which is the result of the values variable converted to a tuple
+static_values = tuple(values)   
+
+
