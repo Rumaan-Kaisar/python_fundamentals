@@ -1,4 +1,4 @@
-# Courses: colt_py_bootcamps    141,  142, 143
+# Courses: colt_py_bootcamps    141,  142, 143, 144
 
 # objectives:
     # create & access
@@ -106,5 +106,29 @@ stuff = [1,3,1,5,2,5,1,2,5]
 # Create a variable called "unique_stuff" which is a set of only the unique values in the stuff list
 unique_stuff = set(stuff)
 
+
+
+
+# ------------|    Set Comprehevsion    |------------
+
+
+#  Use {} similar to DICT
+{x**2 for x in range(10)}   # there will be no order
+# {0, 1, 64, 4, 36, 9, 16, 49, 81, 25}
+
+{char.upper() for char in "hello"}
+# {'O', 'E', 'L', 'H'}
+
+
+# Use with Function: checking all vowels are present in a string
+def vouel_in_str(str):
+    return len({ch for ch in str if ch in 'aeiou'}) == 5
+
+vouel_in_str('vaiueolr')
+
+{ch for ch in str if ch in 'aeiou'} # returns the vouels present in the string
+
+str = 'novello i da'
+{ch for ch in str if ch in 'aeiou'}     # {'o', 'a', 'e', 'i'}
 
 
