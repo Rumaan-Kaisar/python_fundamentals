@@ -32,11 +32,13 @@ name_of_function(args)
 
 
 
+
 # Example 1: Define and execute a function
 def say_my_name():
     print(f"You're Heisenberg!!")
 
 say_my_name()   # You're Heisenberg!!
+
 
 
 
@@ -50,6 +52,8 @@ def sing_happy_birthday():
 sing_happy_birthday()
 
 
+
+
 # Example 3: Define make_noise with parameters
 def make_noise(nm_prm):
     print(f"THE {nm_prm} GOES WILD")
@@ -57,6 +61,12 @@ def make_noise(nm_prm):
 # Execute make_noise:
 make_noise("GAGNAM")
 
+
+
+
+# Example 4: Define a function "product" that returns the product of two numbers:
+def product(a,b):
+    return a*b
 
 
 
