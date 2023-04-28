@@ -78,3 +78,100 @@ def return_day(num):
         return None
 
     
+
+    
+# Example 6: Create a list manipulation function
+    # It's basically just a large if-elif-else statement:
+
+def list_manipulation(collection, command, location, value=None):
+    if(command == "remove" and location == "end"):
+        return collection.pop()
+    elif(command == "remove" and location == "beginning"):
+        return collection.pop(0)
+    elif(command == "add" and location == "beginning"):
+        collection.insert(0,value)
+        return collection
+    elif(command == "add" and location == "end"):
+        collection.append(value)
+        return collection
+
+
+
+
+# Example 7: Functioin that detect palindromic string
+    # Here's the simpler version that doesn't ignore whitespace.  
+    # I reverse the string using a slice [::-1] and compare that to the original string, which returns True or False.  
+
+def is_palindrome(string):
+    return string == string[::-1]
+
+# Advanced Version:
+    # For the more advanced version that ignores whitespace, I first remove all 
+    # whitespace from the input string using a string method called replace(). 
+    # What I'm actually doing is replacing all spaces(" ") with empty strings ("").  
+    # I save the result to a new variable I call "stripped" .  Then, I simply check if stripped  is a palindrome, 
+        # using the same logic I did in the previous solution.
+
+def is_palindrome(string):
+    stripped = string.replace(" ", "")
+    return stripped == stripped[::-1]
+
+
+
+
+# Example 8: count an given item from a given collection
+    # Using the built-in count() method, this is really nice and easy:
+
+def frequency(collection, searchTerm):
+    return collection.count(searchTerm)    
+
+
+
+
+# Example 9: multiply all even-numbers in a given list.
+    # In my solution, I start with a variable called total.
+    # Since we're working with multiplication, I start it off as 1.  
+
+    # Then I iterate through the list, checking if each num is cleanly divisible by 2
+        # If it is, I multiply "total" by the number
+        # At the end, after the loop finishes, I return "total"
+
+def multiply_even_numbers(lst):
+    total = 1
+    for val in lst:
+        if val % 2 == 0:
+            total = total * val
+    return total
+
+
+
+
+# Example 10: Capitalize the first letter 
+    # Slicing the first character (up to index 1) and capitalizing it
+    # Adding that to the rest of the string (from index 1 onward)
+
+def capitalize(string):
+    return string[:1].upper() + string[1:]
+
+
+
+
+# Example 11: Return a compact list with only truthy values
+With a list comprehension
+You can write compact  in a nice single line of code.  How compact!
+
+def compact(l):
+    return [val for val in l if val]
+
+# Without a list comprehension
+    # I make a list to store all truthy values
+    # I iterate over each value in the list
+    # I check if the value is truthy (using a simple if val )
+    # If the value is truthy, add it to the truthy_vals  list
+    # return truthy_vals  at the end
+
+def compact(l):
+    truthy_vals = []
+    for val in l:
+        if val: truthy_vals.append(val)
+    return truthy_vals
