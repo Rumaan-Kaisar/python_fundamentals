@@ -87,4 +87,43 @@ def product(a,b):
 
 
 
+# Example 5: Define a function that finds last element of a list
+    # First check to see if the list exists (if it has data in it).  
+    # If it does, return the '-1'st item (last item).  Otherwise, return None.
+
+def last_element(l):
+    if l:
+        return l[-1]
+    return None
+
+
+
+
+# Example 6: Define a function that compares two numbers
+def number_compare(a,b):
+    if a > b:
+        return "First is greater"
+    elif b > a:
+        return "Second is greater"
+    return "Numbers are equal"
+
+
+
+
+# Example 7: Define a function that counts a given letter from a given string.
+    # In my solution, I use the built-in count()  to count the number of times letter  appears in string .  
+    # I also downcase both string  and letter  to make it "case-insensitive" (you could also upcase both instead)
+
+def single_letter_count(string, letter):
+    return string.lower().count(letter.lower())    
+
+
+
+# Example 8: Define a function that counts multiple-letters appeared in a given string.
+    # I used a "DICTIONARY COMPREHENSION". 
+    # For each letter in the input string, I make the "key" the letter itself ("a" for example), 
+        # and the corresponding "value" is the result of running count() of that letter in the string.
+
+def multiple_letter_count(string):
+    return {letter: string.count(letter) for letter in string}
 
