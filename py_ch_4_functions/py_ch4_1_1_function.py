@@ -8,6 +8,8 @@
     # Define and diagram how "scope" works in a function
     # Add "keyword arguments" to functions
 
+    # Use the * and ** operator as parameters to a function and outside of a function
+    # Leverage dictionary and tuple unpacking to create more flexible functions
     
 
 # =============    SUMMERY    =============
