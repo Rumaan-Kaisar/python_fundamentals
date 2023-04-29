@@ -157,8 +157,8 @@ def capitalize(string):
 
 
 # Example 11: Return a compact list with only truthy values
-With a list comprehension
-You can write compact  in a nice single line of code.  How compact!
+    # With a list comprehension
+    # You can write compact  in a nice single line of code.  How compact!
 
 def compact(l):
     return [val for val in l if val]
