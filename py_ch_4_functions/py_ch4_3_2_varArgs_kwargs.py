@@ -1,5 +1,5 @@
 
-# Courses: colt_py_bootcamps    175, 176
+# Courses: colt_py_bootcamps    175, 176, 177
 
 # =================    variable arguments. Var Args    =================
 
@@ -33,7 +33,7 @@ def sum_args(*num_args):
 print(sum_args(1, 2, 3, 4, 5))
 print(sum_args(1, 2, 3))
 
-# we can put parameters before the *args, *args are consitered as a TUPLE
+# we can put parameters before the *args, *args are considered as a TUPLE
 # following prints first two arguments and sums the rest
 def sum_args(num1, num2, *num_args):
     print(num1)
@@ -79,3 +79,54 @@ def contains_purple(*args):
     return False
 
 contains_purple(6, 7, "purple")
+
+
+
+
+# ----------|    double star ** operator : **kwargs   |----------
+    # kwargs is just a name, we can call it anything
+        # A special operator we can pass to functions as parameter
+        # It Gathers remaining keyword arguments as a DICTIONARY (unlike varargs *args TUPLE)
+        # kwargs in **kwargs is just a parameter - you'can call it whatever you want!
+
+def fev_clors(**kwrg_clrs):
+    print(kwrg_clrs)
+    # access the kwargs- Dict.
+    for ky, val in kwrg_clrs.items():
+        print(f"{ky}'s favorite color is {val}")
+
+fev_clors(tomallo = "red", grover= "blue", monty = "yellow")
+# {'tomallo': 'red', 'grover': 'blue', 'monty': 'yellow'}
+# tomallo's favorite color is red
+# grover's favorite color is blue
+# monty's favorite color is yellow
+
+
+
+
+# Example: Following uses conditions on kwargs. 
+# It is only looking for David, Other than "David", all keys are ignored
+def special_greeting(**kwargs):
+    if "David" in kwargs and kwargs["David"] == "special":
+        return "You get a special greeting David!"
+    elif "David" in kwargs:
+        return f"{kwargs['David']} David!"
+
+    return "Not sure who this is..."
+
+# print(special_greeting(David='Hello')) # Hello David!
+# print(special_greeting(Bob='hello')) # Not sure who this is...
+# print(special_greeting(David='special')) # You get a special greeting David!
+
+print(special_greeting(Heather="hello", David="special"))
+
+# we can put parameters before the **kwargs, *args are considered as a TUPLE
+def anothr_special_greeting(sultan, **greet_args):
+    if "David" in greet_args and greet_args["David"] == "special":
+        return "You get a special greeting David!"
+    elif "David" in greet_args:
+        return f"{greet_args['David']} David!"
+
+    return "Not sure who this is..."
+
+
