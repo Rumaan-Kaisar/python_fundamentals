@@ -15,6 +15,10 @@
     # accessing is similar to "list"
     # there is also orders, like list
 
+# Single item tuple:
+    # (3) is not cosidered as single item tuple.
+    # we need to add a comma after the item to notify Python, that it is a tuple with single item:
+    (3,)  # is a tuple    
 
 x = (1, 2, 3, 4) 
 3 in x  # True
