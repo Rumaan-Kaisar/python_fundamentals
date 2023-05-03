@@ -40,6 +40,14 @@ new_user.fromkeys(range(0,11), None)
 
 # ----------|    get()   |----------
 # retrive values from corresponding "key", None instead of key-error
+''' 
+Syntax
+        dictionary.get(keyname, value)
+
+    keyname =	Required. The keyname of the item you want to return the value from
+    value =	Optional. A value to return if the specified key does not exist. Default value None.
+'''
+
 d = dict(a=1, b=2, c=3)
 d['a']          # 1
 d.get('a')      # 1
