@@ -81,3 +81,24 @@ print( f'List Comprehension: {list_comp} bytes') # List Comprehension: 8856 byte
 print(f"Generator Expression: {gen_exp} bytes") # Generator Expression: 104 bytes
 
 
+
+
+# Example 5: Check is_all_strings  Using a Generator Expression
+
+    # I start by defining "is_all_strings", which accepts a parameter called "lst"
+    # I call the built-in function 'all', passing in a 'generator expression' that checks if the type of each item in the list is a 'str'.  
+
+# Using a Generator Expression
+def is_all_strings(lst):
+    return all(type(l) == str for l in lst)
+
+is_all_strings(["Bokhua", "Lambada", "A"])  # True
+
+
+# Using a List Comprehension
+# You can do the same thing, using a list comprehension instead of a generator expression: (just adding list brackets around it)
+def is_all_strings_ls(lst):
+    return all([type(l) == str for l in lst])
+
+is_all_strings_ls(["Bokhua", "Lambada", "A", 0])  # False
+
