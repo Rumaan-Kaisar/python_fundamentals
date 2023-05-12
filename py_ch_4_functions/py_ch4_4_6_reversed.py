@@ -35,9 +35,9 @@ for char in reversed("hello world"):
 
 
 # Example 1: Same thing can be done with LIST-SLICING, reversing with -1
-"hello"[::-1]
+"hello"[::-1]   # olleh
 # We have to work more to get same using reversed()
-''.join(list(reversed("hello")))
+''.join(list(reversed("hello")))    # # olleh
 # list(reversed("hello"))   # ['o', 'l', 'l', 'e', 'h']
 
 
