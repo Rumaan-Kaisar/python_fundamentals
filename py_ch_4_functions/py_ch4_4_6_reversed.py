@@ -46,3 +46,5 @@ for char in reversed("hello world"):
 # Example 2: Reverse FOR loop, counts backward
 for x in reversed(range(0,10)):
     print(x)
+
+    
