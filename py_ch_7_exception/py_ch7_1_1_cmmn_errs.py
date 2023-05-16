@@ -10,6 +10,15 @@
 """
 
 # ----------    Some common errors    ----------
+
+        # SymtaxError
+        # Name Error
+        # Type Error
+        # Index ERR
+        # Value error
+        # Key Error
+        # Attribute Error
+
 # There are many other errors, if you encounter one, just copy its name and GOOGLE
 # more on Python Docs
 
