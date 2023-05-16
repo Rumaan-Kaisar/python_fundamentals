@@ -1,0 +1,7 @@
+
+    Debugging
+
+    Objectives:
+        Explain common errors and how they occur in python
+        Use "pdb-python debugger" to set "breakpoint" and step through code
+        Use "Try" and "Except" blocks to handle Errors
