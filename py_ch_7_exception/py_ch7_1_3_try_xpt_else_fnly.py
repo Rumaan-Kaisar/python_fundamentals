@@ -16,18 +16,18 @@ except NameError as err:
 print("After try/extept")
 
 
-# More Generally we can catch all ERR, if we not specify it.
+# More Generally we can catch all ERR, if we do not specify it.
 try:
     foobar
 except:
     print("Problem")
 
-# Above is generic and catch all sort of ERR. 
-# However it not a good idea if we dont explain the Error
+# Above is GENERIC and catch all sort of ERR. 
+	# However it is not a good idea if we don't explain the Error
 
 # What we are doing here is catching every error, 
-#     which means we are not able to correctly identify "what" went wrong. 
-#     It is highly discouraged to do this.
+	# which means we are not able to correctly identify "what" went wrong. 
+	# It is highly discouraged to do this.
 
 
 
