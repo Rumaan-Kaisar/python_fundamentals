@@ -155,3 +155,12 @@ def divide(a,b):
 
 
 # python py_ch7_1_3_try_xpt_else_fnly.py 
+
+
+
+20-May-2023 actually missed to upload in github
+used "vpn" to get into different time zone
+android is used in different Time Zone setting 
+
+
+
