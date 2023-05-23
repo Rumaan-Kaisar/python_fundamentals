@@ -6,7 +6,7 @@
     # The syntax is the same as before 
     # import from the name of the Python file
     
-    # Custom modules are important for OOP and Big projects 
+    # Custom modules are important for OOP and Better "Code-Organization" for Big projects 
     # Custom modules are also used to create Complex DataStructures
     
 
