@@ -1,7 +1,13 @@
 
 # Courses: colt_py_bootcamps    218
 
-
+# ----------------    Custom Modules    ----------------
+    # You can import from your own code too 
+    # The syntax is the same as before 
+    # import from the name of the Python file
+    
+    
+    
 # Importing everythin in both modules:
 
 # import bananas
