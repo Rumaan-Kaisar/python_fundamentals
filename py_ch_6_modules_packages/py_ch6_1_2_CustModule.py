@@ -7,7 +7,23 @@
     # import from the name of the Python file
     
     
-    
+
+# Custom Modules Demo
+
+# .........    file1.py	
+def	fn() :	
+	return "do some	stuff"
+
+def	other_fn():	
+	return "do some	other stuff"
+
+
+# .........    file2.py
+import file1
+
+filel.fn()      # 'do some stuff' 
+file2.other_fn()    # 'do some other stuff'
+
 # Importing everythin in both modules:
 
 # import bananas
