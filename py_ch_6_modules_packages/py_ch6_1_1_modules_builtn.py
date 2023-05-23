@@ -86,5 +86,40 @@ from random import *
     # • from random import choice, shuffle
     # •	from random import choice as gimme_one, shuffle as mix_up_fruits
 
-    
-    
+
+
+
+# Example 1: Math Module Exercise. Find square root of 15129.
+import math
+
+answer = math.sqrt(15129)
+
+
+
+
+# Example 2: Find if any argument of a function Contains Keyword.
+
+    # I start by importing keyword up top
+    # Inside of contains_keyword , I look through all items in args
+    # for each item, I test if it's a keyword by calling keyword.iskeyword(item) 
+    # The first time we encounter a keyword, return True right away
+    # Otherwise, once the loop is over return False (meaning, no keywords were found)
+
+import keyword
+
+def contains_keyword(*args):
+    for item in args:
+        if keyword.iskeyword(item): return True
+    return False
+
+contains_keyword(5)     # False
+contains_keyword("import")  # True
+contains_keyword("def")     # True
+
+''' 
+Python provides an in-built module keyword that allows you to know about the reserved keywords of python.
+
+The keyword module allows you the functionality to know about the reserved words or keywords 
+    of Python and to check whether the value of a variable is a reserved word or not. 
+'''
+
