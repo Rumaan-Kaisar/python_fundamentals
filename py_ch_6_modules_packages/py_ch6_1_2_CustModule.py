@@ -26,14 +26,18 @@ import file1
 filel.fn()      # 'do some stuff' 
 file2.other_fn()    # 'do some other stuff'
 
+
+
+
+# Example 1: Use the modules apples.py and bananas.py
+
 # Importing everythin in both modules:
 
-# import bananas
-# import apples
+import bananas
+import apples
 
-# print(apples.offer())
-
-# print(bananas.dip_in_chocolate())
+print(apples.offer())
+print(bananas.dip_in_chocolate())
 
 
 # Importing a single function from bananas:
@@ -43,20 +47,18 @@ print(dip())
 
 
 
-Custom Module Exercise
-This exercise tested your ability to write simple code in one file and import it into another file.
+# Example 2: write simple code in one file and import it into another file.
 
-In helpers.py:
-I started by defining lucky_number  in helpers.py :
+    # In "helpers.py": I started by defining lucky_number  in helpers.py:
+    
+    # In exercise.py: I import my "helpers"  module first.  
+        # And then I call helpers.lucky_number()  and save the result to the 'num'  variable   
 
 def lucky_number():
     return 37
-In exercise.py:
-I import my helpers  module first.  And then I call helpers.lucky_number()  and save the result to the num  variable
 
 #Import your helpers module here.  Do not use the 'from' or 'as' syntax, just use a plain old 'import'
 import helpers
-
 
 #Call the lucky_numbers function from your helpers module, and save the result to a variable called num
 num = helpers.lucky_number()
