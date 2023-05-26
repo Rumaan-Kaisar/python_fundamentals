@@ -3,7 +3,7 @@
 
 
 # ---------------    termcolor    ---------------
-# In windows CLI ANSI codes won't work at first
+# In windows CLI, ANSI codes won't work at first
 	# To get the ANSI codes working on windows, first run "os.system('color')"
 import os	
 os.system('color')
