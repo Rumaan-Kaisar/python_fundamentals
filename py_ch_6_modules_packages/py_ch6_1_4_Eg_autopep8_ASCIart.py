@@ -1,6 +1,39 @@
 
 # Courses: colt_py_bootcamps    220, 221
 
+
+# ---------------    termcolor    ---------------
+# In windows CLI ANSI codes won't work at first
+	# To get the ANSI codes working on windows, first run "os.system('color')"
+import os	
+os.system('color')
+
+
+
+# termcolor usage demo
+import os, sys
+
+# To get the ANSI codes working on windows, first run
+os.system('color')
+
+from termcolor import colored, cprint
+
+text = colored("Hello, World!", "red", attrs=["reverse", "blink"])
+print(text)
+cprint("Hello, World!", "green", "on_red")
+
+print_red_on_cyan = lambda x: cprint(x, "red", "on_cyan")
+print_red_on_cyan("Hello, World!")
+print_red_on_cyan("Hello, Universe!")
+
+for i in range(10):
+    cprint(i, "magenta", end=" ")
+
+cprint("Attention!", "red", attrs=["bold", "blink"], file=sys.stderr)
+
+
+
+
 # Example 1: Use termcolor to colorize your text
 
 # pip install termcolor
