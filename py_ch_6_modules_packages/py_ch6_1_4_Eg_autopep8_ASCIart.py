@@ -129,6 +129,10 @@ else:
 
 # -------------- another way ------------
 ''' 
+# To get the ANSI codes working on windows, first run "os.system('color')"
+import os	
+os.system('color')
+
 from pyfiglet import figlet_format
 from termcolor import colored
 
