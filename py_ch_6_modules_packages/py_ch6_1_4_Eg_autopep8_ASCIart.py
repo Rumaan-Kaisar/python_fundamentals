@@ -3,8 +3,8 @@
 
 
 # ---------------    termcolor    ---------------
-# In windows CLI, ANSI codes won't work at first
-	# To get the ANSI codes working on windows, first run "os.system('color')"
+# In WINDOWS CLI, 'ANSI color codes' won't work at first
+	# To get the 'ANSI codes' working on WINDOWS, first run "os.system('color')"
 import os	
 os.system('color')
 
@@ -34,11 +34,11 @@ cprint("Attention!", "red", attrs=["bold", "blink"], file=sys.stderr)
 
 
 
-# Example 1: Use termcolor to colorize your text
+# Example 1: Use 'termcolor' to colorize your text
 
 # pip install termcolor
 
-# To get the ANSI codes working on windows, first run "os.system('color')"
+# To get the 'ANSI codes' working on WINDOWS, first run "os.system('color')"
 import os	
 os.system('color')
 
