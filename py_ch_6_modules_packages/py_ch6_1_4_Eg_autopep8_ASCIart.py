@@ -1,5 +1,5 @@
 
-# Courses: colt_py_bootcamps    220, 221
+# Courses: colt_py_bootcamps    220, 221, 222
 
 
 # ---------------    termcolor    ---------------
@@ -165,4 +165,10 @@ print_art(msg, color)
 '''
 
 # python py_ch6_1_4_Eg_autopep8_ASCIart.py
+
+
+
+
+
+# ---------------    autopep8 : to cleanup codes    ---------------
 
