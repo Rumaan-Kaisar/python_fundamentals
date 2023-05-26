@@ -38,6 +38,10 @@ cprint("Attention!", "red", attrs=["bold", "blink"], file=sys.stderr)
 
 # pip install termcolor
 
+# To get the ANSI codes working on windows, first run "os.system('color')"
+import os	
+os.system('color')
+
 import termcolor
 help(termcolor) # won't work if not imported the module first
 
