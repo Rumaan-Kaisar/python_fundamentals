@@ -98,12 +98,11 @@ print(text)
 
 
 
-
-# Example 2: Use module "pyfiglet" to make an ASCII art and then colorize it using "termcolor"
+# Example 2: Use module "pyfiglet" to make an 'ASCII art' and then colorize it using "termcolor"
 
 # pip install pyfiglet
 
-# To get the ANSI codes working on windows, first run "os.system('color')"
+# To get the 'ANSI color codes' working on WINDOWS, first run "os.system('color')"
 import os	
 os.system('color')
 
@@ -142,7 +141,7 @@ else:
 
 ''' 
 # -------------- another way ------------
-# To get the ANSI codes working on windows, first run "os.system('color')"
+# To get the 'ANSI color codes' working on windows, first run "os.system('color')"
 import os	
 os.system('color')
 
