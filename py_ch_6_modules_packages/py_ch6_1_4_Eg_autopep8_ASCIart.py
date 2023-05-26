@@ -1,8 +1,9 @@
 
-# Courses: colt_py_bootcamps 220, 221
+# Courses: colt_py_bootcamps    220, 221
 
+# Example 1: Use termcolor to colorize your text
 
-pip install termcolor
+# pip install termcolor
 
 import termcolor
 help(termcolor) # won't work if not imported the module first
@@ -39,8 +40,7 @@ FUNCTIONS
 
 print(dir(termcolor))
 
-clr_txt = termcolor.colored("OMG!!", color="red")
-print(clr_txt)
+
 # The coloring is done with "ASCII color-codes"
 
 # Bacground color change
@@ -59,3 +59,58 @@ text = colored("HI THERE!", color="magenta", on_color="on_cyan", attrs=["blink"]
 print(text)
 
 
+
+
+# Example 2: Use module "pyfiglet" to make an ASCII art and then colorize it using "termcolor"
+
+# pip install pyfiglet
+import termcolor
+import pyfiglet
+
+# help(termcolor)
+
+ask_msg = input("What message do you want to print : ")
+ask_clor = input("What Color : ")
+
+# help(termcolor) # use it to get availabe colors list
+
+''' Available text colors:
+            black, red, green, yellow, blue, magenta, cyan, white,
+            light_grey, dark_grey, light_red, light_green, light_yellow, light_blue,
+            light_magenta, light_cyan. '''
+
+asci_art = pyfiglet.figlet_format(ask_msg)
+
+term_color_list = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white",
+            "light_grey", "dark_grey", "light_red", "light_green", "light_yellow", "light_blue",
+            "light_magenta", "light_cyan"]
+
+print(asci_art)
+
+if ask_clor in term_color_list:
+    print(termcolor.colored(asci_art, color=ask_clor))
+else:
+    print(termcolor.colored(asci_art, color = term_color_list[2]))
+
+
+
+# -------------- another way ------------
+''' 
+from pyfiglet import figlet_format
+from termcolor import colored
+
+def print_art(msg, color):
+	valid_colors = ("red", "green", "yellow", "blue", "magenta", "cyan", "white")
+
+	if color not in valid_colors:
+		color = "magenta"
+
+	ascii_art = figlet_format(msg)
+	colored_ascii = colored(ascii_art, color=color)
+	print(colored_ascii)
+
+msg = input("What would you like to print? ")
+color = input("What color? ")
+print_art(msg, color)
+'''
+# python py_ch6_1_4_Eg_autopep8_ASCIart.py
