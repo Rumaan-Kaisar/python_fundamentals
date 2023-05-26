@@ -94,16 +94,22 @@ print(text)
 
 
 
+
 # Example 2: Use module "pyfiglet" to make an ASCII art and then colorize it using "termcolor"
 
 # pip install pyfiglet
+
+# To get the ANSI codes working on windows, first run "os.system('color')"
+import os	
+os.system('color')
+
 import termcolor
 import pyfiglet
 
-# help(termcolor)
-
 ask_msg = input("What message do you want to print : ")
 ask_clor = input("What Color : ")
+ask_bg_clor = input("On what Background Color : ")
+
 
 # help(termcolor) # use it to get availabe colors list
 
@@ -118,17 +124,20 @@ term_color_list = ["black", "red", "green", "yellow", "blue", "magenta", "cyan",
             "light_grey", "dark_grey", "light_red", "light_green", "light_yellow", "light_blue",
             "light_magenta", "light_cyan"]
 
-print(asci_art)
+# bacground: just add "on_"+term_color_list[i]
 
-if ask_clor in term_color_list:
-    print(termcolor.colored(asci_art, color=ask_clor))
+if (ask_clor in term_color_list):
+    if (ask_bg_clor in term_color_list):
+        bcgnd = "on_"+ask_bg_clor
+        print(termcolor.colored(asci_art, color=ask_clor, on_color= bcgnd))
+    else:
+        print(termcolor.colored(asci_art, color=ask_clor))
 else:
-    print(termcolor.colored(asci_art, color = term_color_list[2]))
+    print(termcolor.colored(asci_art, color = "light_green"))
 
 
-
-# -------------- another way ------------
 ''' 
+# -------------- another way ------------
 # To get the ANSI codes working on windows, first run "os.system('color')"
 import os	
 os.system('color')
@@ -149,5 +158,8 @@ def print_art(msg, color):
 msg = input("What would you like to print? ")
 color = input("What color? ")
 print_art(msg, color)
+
 '''
+
 # python py_ch6_1_4_Eg_autopep8_ASCIart.py
+
