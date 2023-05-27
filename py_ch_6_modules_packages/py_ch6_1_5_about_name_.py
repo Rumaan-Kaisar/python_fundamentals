@@ -2,8 +2,6 @@
 # Courses: colt_py_bootcamps  223
 
 
-# Courses: colt_py_bootcamps    223
-
 # -----------------    __name__    -----------------
 # Python has a built-in variable called __name__ that records the name of the currently running module or script. 
 # The __name__ variable merely holds the name of the module or script unless the current module is executing, in which case the value __main__ is set to it.
