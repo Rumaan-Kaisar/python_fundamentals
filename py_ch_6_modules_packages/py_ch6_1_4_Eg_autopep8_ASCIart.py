@@ -98,6 +98,7 @@ print(text)
 
 
 
+# ---------------    ASCII-art    ---------------
 # Example 2: Use module "pyfiglet" to make an 'ASCII art' and then colorize it using "termcolor"
 
 # pip install pyfiglet
@@ -207,7 +208,7 @@ Only actual code should be reindented.
 
 
 
-# ------    AGGRESSIVE LEVEL    -------------
+# ------    AGGRESSIVE LEVEL 
 # To modify a file in place (with aggressive level 2):
 
 autopep8 --in-place --aggressive --aggressive <filename>
