@@ -1,6 +1,5 @@
 
-# Courses: colt_py_bootcamps  223
-
+# Courses: colt_py_bootcamps    223
 
 # -----------------    __name__    -----------------
 # Python has a built-in variable called __name__ that records the name of the currently running module or script. 
@@ -18,8 +17,8 @@ Since there is no main() function in Python, when the command to run a python pr
         If this file is being imported from another module, __name__ will be set to the "module’s name".
 
 __name__ is a built-in variable which evaluates to the name of the "current module". 
-Thus it can be used to check whether the current script is being run on its own or being imported somewhere else by  
-combining it with if statement, as shown below.
+    Thus it can be used to check whether the current script is being run on its own or being imported somewhere else by  
+    combining it with if statement, as shown below.
 '''
     
 
@@ -65,4 +64,21 @@ python File2.py
 
     # when File1.py is run directly, the interpreter sets the __name__ variable as __main__  
     # when it is run through File2.py by importing, the __name__ variable is set as the name of the python script, i.e. File1. 
+
+
+# ----------    using __name__ and __main__ with imported files    ----------
+
+# When run, every Python file has a__name____variable
+# Default: If the file is the main file being run, its value is "_main
+# Otherwise, its value is the (imported) file name
+
+# When you use import, Python...
+# 1.	Tries to find the module (if it fails, it throws an error),
+# 2.	Runs the code inside of the module being imported,
+
+# Ignoring Code on Import
+if __name___ == "__main__":
+    #	this code will only run
+    #	if the file is the main file!
+
 
