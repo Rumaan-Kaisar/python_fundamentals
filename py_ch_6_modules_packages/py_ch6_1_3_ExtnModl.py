@@ -44,7 +44,6 @@ pip install statsmodels
 # install as admin
 pip install --user tensorflow
 
-# ---------    colorize print: termcolor    ---------
 
 
 
