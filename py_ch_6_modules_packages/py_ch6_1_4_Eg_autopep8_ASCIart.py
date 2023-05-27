@@ -172,3 +172,92 @@ print_art(msg, color)
 
 # ---------------    autopep8 : to cleanup codes    ---------------
 
+# always KEEP BACKUP OF YOUR ORIGINAL FILE before applying autopep8
+
+# pip install autopep8
+
+''' autopep8 automatically formats Python code to conform to the PEP 8 style guide. 
+It uses the pycodestyle utility to determine what parts of the code needs to be formatted. 
+autopep8 is capable of fixing most of the formatting issues that can be reported by pycodestyle. '''
+
+# Before running autopep8.
+
+import math, sys;
+
+def example1():
+    ####This is a long comment. This should be wrapped to fit within 72 characters.
+    some_tuple=(   1,2, 3,'a'  );
+    some_variable={'long':'Long code lines should be wrapped within 79 characters.',
+    'other':[math.pi, 100,200,300,9876543210,'This is a long string that goes on'],
+    'more':{'inner':'This whole logical line should be wrapped.',some_tuple:[1,
+    20,300,40000,500000000,60000000000000000]}}
+    return (some_tuple, some_variable)
+def example2(): return {'has_key() is deprecated':True}.has_key({'f':2}.has_key(''));
+class Example3(   object ):
+    def __init__    ( self, bar ):
+     #Comments should have a space after the hash.
+     if bar : bar+=1;  bar=bar* bar   ; return bar
+     else:
+                    some_string = """
+                       Indentation in multiline strings should not be touched.
+Only actual code should be reindented.
+"""
+                    return (sys.path, some_string)
+
+
+
+# AGGRESSIVE LEVEL
+# To modify a file in place (with aggressive level 2):
+
+autopep8 --in-place --aggressive --aggressive <filename>
+
+
+# After running autopep8: After running the above command in CLI:
+import math
+import sys
+
+
+def example1():
+    # This is a long comment. This should be wrapped to fit within 72
+    # characters.
+    some_tuple = (1, 2, 3, 'a')
+    some_variable = {
+        'long': 'Long code lines should be wrapped within 79 characters.',
+        'other': [
+            math.pi,
+            100,
+            200,
+            300,
+            9876543210,
+            'This is a long string that goes on'],
+        'more': {
+            'inner': 'This whole logical line should be wrapped.',
+            some_tuple: [
+                1,
+                20,
+                300,
+                40000,
+                500000000,
+                60000000000000000]}}
+    return (some_tuple, some_variable)
+
+
+def example2(): return {'has_key() is deprecated': True}.has_key(
+    {'f': 2}.has_key(''))
+
+
+class Example3(object):
+    def __init__(self, bar):
+        # Comments should have a space after the hash.
+        if bar:
+            bar += 1
+            bar = bar * bar
+            return bar
+        else:
+            some_string = """
+                       Indentation in multiline strings should not be touched.
+Only actual code should be reindented.
+"""
+            return (sys.path, some_string)
+
+
