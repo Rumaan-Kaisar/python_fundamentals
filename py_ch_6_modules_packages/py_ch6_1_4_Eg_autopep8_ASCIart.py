@@ -171,8 +171,9 @@ print_art(msg, color)
 
 
 # ---------------    autopep8 : to cleanup codes    ---------------
+# for more info : https://pypi.org/project/autopep8/
 
-# always KEEP BACKUP OF YOUR ORIGINAL FILE before applying autopep8
+# always "KEEP BACKUP OF YOUR ORIGINAL FILE" before applying autopep8
 
 # pip install autopep8
 
@@ -206,7 +207,7 @@ Only actual code should be reindented.
 
 
 
-# AGGRESSIVE LEVEL
+# ------    AGGRESSIVE LEVEL    -------------
 # To modify a file in place (with aggressive level 2):
 
 autopep8 --in-place --aggressive --aggressive <filename>
