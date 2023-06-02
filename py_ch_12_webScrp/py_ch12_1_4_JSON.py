@@ -62,11 +62,3 @@ print(data)
 print(data["joke"])
 print(f"status: {data['status']}")
 
-
-
-
-
-
-# To get "PLAIN TEXT"
-
-
