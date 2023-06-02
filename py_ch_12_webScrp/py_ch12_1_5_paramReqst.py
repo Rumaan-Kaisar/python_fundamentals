@@ -1,7 +1,7 @@
 
 # Courses: colt_py_bootcamps    229 
 
-# -------------    Request with PARAMETERS    -------------
+# -------------    Request with PARAMETERS : QUERY-string   -------------
 
 # Query String: Pass Data to the SERVER
     # A way to pass data to the server as a part of a GET request
@@ -35,7 +35,7 @@ response = requests.get(
 
 
 
-# Example1 : Use Query-string to get data from API
+# Example 1 : Use Query-string to get data from API
 # Note: first find the pattern by going in that website. Eg: searcing a Joke for specific topic "flower":
     # https://icanhazdadjoke.com/search?term=flower
 
