@@ -23,3 +23,12 @@
         # help() provides all sort of infromation including all "class-methods"
     # for example: "list" is a class and "num = [1, 2, 3]" is a INSTANCE of the 'list-class'
 
+
+
+
+# ------------------    Abstruction & Encapsulation    ------------------
+# The goal of OOP is ENCAPSULATE our codes into logocal, hierarchical grouping using classes 
+    # it all about ORGANIZING and REUSING our codes
+    # get rid of SPAGETTI CODE
+    
+
