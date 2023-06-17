@@ -233,3 +233,16 @@ print (blue.toy)	# using from CHILD CLASS "Cat"
 
 blue.play()
 
+
+
+# OUR "MODEL" FOR ANIMAL AND CAT
+# Animal
+# 	species
+# 	name
+
+# Cat
+# 	species
+# 	name
+# 	breed
+# 	favorite_toy
+
