@@ -152,9 +152,8 @@ print(jane.__dict__)
 
 
 
-
 # -----------------    super    -----------------
-# Inheritance Example Using Super()
+
 class Animal:
 	def __init__(self, name, species):
 		self.name = name
@@ -167,6 +166,54 @@ class Animal:
 		print(f"this animal says {sound}")
 
 
+
+# without using super() or paraent.__init__()
+class Cat(Animal):
+    def __init__(self, name, species, breed, toy):
+        # duplication occurs (use inheritance to avoid this)
+        self.name = name
+        self.species = species
+        self.breed = breed
+        self.toy = toy
+
+blue = Cat("Blue", "cat", "Scottish Fold", "String")
+print(blue)
+
+
+# using paraent.__init__()
+class Cat(Animal):
+	def __init__(self, name, species, breed, toy):
+		# paraent.__init__() to avoid duplication
+		Animal.__init__(self, name, species)
+		self.breed = breed
+		self.toy = toy
+
+blue = Cat("Blue", "cat", "Scottish Fold", "String")
+
+print(blue)
+print(blue.species) # using from BASE CLASS "Animal"
+print(blue.breed) 	# using from CHILD CLASS "Cat"
+print (blue.toy)	# using from CHILD CLASS "Cat"
+
+
+
+
+# Inheritance Example Using -------    Super()    ---------
+    # it is similar to using paraent.__init__(), but we dont need to specify "self"
+    # super() refers to immidiate parent (which is passed in the argument od CHILD)
+class Animal:
+	def __init__(self, name, species):
+		self.name = name
+		self.species = species
+
+	def __repr__(self):
+		return f"{self.name} is a {self.species}"
+
+	def make_sound(self, sound):
+		print(f"this animal says {sound}")
+
+
+# using super()
 class Cat(Animal):
 	def __init__(self, name, breed, toy):
 		super().__init__(name, species="Cat") # Call init on parent class
@@ -177,18 +224,12 @@ class Cat(Animal):
 		print(f"{self.name} plays with {self.toy}")
 
 
-
 blue = Cat("Blue","Scottish Fold", "String")
+
+print(blue)
+print(blue.species) # using from BASE CLASS "Animal"
+print(blue.breed) 	# using from CHILD CLASS "Cat"
+print (blue.toy)	# using from CHILD CLASS "Cat"
+
 blue.play()
 
-
-# OUR "MODEL" FOR ANIMAL AND CAT
-# Animal
-# 	species
-# 	name
-
-# Cat
-# 	species
-# 	name
-# 	breed
-# 	favorite_toy
