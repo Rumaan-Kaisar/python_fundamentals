@@ -3,9 +3,6 @@
 
 # ------------    Multiple inheritance    ------------
 
-from xml.dom import HierarchyRequestErr
-
-
 class Aquatic:
   def __init__(self,name):
     print("AQUATIC INIT!")
