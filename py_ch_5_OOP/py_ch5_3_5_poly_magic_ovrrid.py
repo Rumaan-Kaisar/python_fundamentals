@@ -199,3 +199,41 @@ import copy
 triplets_2 = (j + k) * 3
 print(triplets_2)
 
+
+
+
+
+# ----------------    Use __dunder__ anlong with inheritance    ----------------
+
+# Example 4: Notice how we create our own version of "Dictionary" called "GrumpyDict"
+    # This "GrumpyDict" is a child of "dict" class 
+    # "GrumpyDict" calles "dict" class's DUNDERs in its own DUNDER methods to make 
+        # its own dictionary type methods
+            # __missing__   for not found element
+            # __setitem__   change a dictionary item
+            # __contains__  check an item
+
+
+class GrumpyDict(dict):
+	def __repr__(self):
+		print("NONE OF YOUR BUSINESS")
+		return super().__repr__()
+
+	def __missing__(self, key):
+		print(f"YOU WANT {key}?  WELL IT AINT HERE!")
+
+	def __setitem__(self, key, value):
+		print("YOU WANT TO CHANGE THE DICTIONARY?")
+		print("OK FINE...")
+		super().__setitem__(key, value)
+
+	def __contains__(self, item):
+		print("NO IT AINT IN HERE!")
+		return False
+
+data = GrumpyDict({"first": "Tom", "animal": "cat"})
+print(data)
+data['city'] = 'Tokyo'
+print(data)
+'city' in data
+
