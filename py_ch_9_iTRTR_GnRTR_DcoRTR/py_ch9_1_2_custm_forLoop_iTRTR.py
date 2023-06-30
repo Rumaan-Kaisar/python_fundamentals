@@ -80,4 +80,15 @@ for x in Cuntr(1, 20):
 # "Cuntr()" actually works like "range()"
 
 
+
+
+# Example 1: Make our "Deck" class iterable
+# to iterate over our cards we need to add folloing code in the "Deck" class
+    # note that, we are not defining our own version of iterator (done above)
+        #  we're just using iter() over 'self', so we don't need to define next()
+def __iter__(self):
+    return iter(self)
+
+
 # python py_ch9_1_2_custm_forLoop_iTRTR.py
+
