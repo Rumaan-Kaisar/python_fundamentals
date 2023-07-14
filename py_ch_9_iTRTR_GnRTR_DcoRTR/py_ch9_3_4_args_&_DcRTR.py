@@ -92,6 +92,14 @@ def only_ints(fn):
         return fn(*args, **kwargs)
     return inner
 
+@only_ints
+def mul1(num1, num2):
+    return num1*num2
+
+print(mul1(5, 7))
+
+print(mul1(5.0, 7.0))   # Force to put int
+
 
 
 
@@ -106,10 +114,109 @@ def ensure_authorized(fn):
         return "Unauthorized"
     return wrapper
 
+@ensure_authorized
+def mul1(num1, num2, role):
+    return num1*num2
+
+print(mul1(5, 7))   # Unauthorized
+
+print(mul1(5, 7, role = "admin"))
 
 
 
-# Example 5: Create a Decorator that makes a function delay to execute
+
+# ---------------     Decorator with parameters     ---------------
+# we can pass arguments to the decorator when we use it on a function
+
+# Adding Extra layer of function to our decorator
+    # we have to add an extra function layer to make a decoorator with argumnet
+    # For example
+        # @ensure_first_arg_is("burrito")
+
+
+# following shows what is going on under the hood
+# NOT WORKING CODE!
+
+# When we write decorator with no args:
+@decorator
+def func( *args, **kwargs):
+    pass
+
+# We're really doing:
+func = decorator(func)
+
+
+# When we write a decorator with args: 
+@decorator_with_args(arg)
+def func( *args, **kwargs):
+    pass
+
+# We're really doing: Applying extra-layer function
+func = decorator_with_args(arg)(func)
+
+
+
+
+# Example 5: Enforcing First arguments.
+from functools import wraps
+
+def ensure_first_arg_is(val):   # this is the extra layer
+	def inner(fn):              # this is the decorator
+		@wraps(fn)
+		def wrapper(*args, **kwargs):
+			if args and args[0] != val:
+				return f"First arg needs to be {val}"
+			return fn(*args, **kwargs)
+		return wrapper
+	return inner
+
+
+# enforces first argument to be "burrito"
+@ensure_first_arg_is("burrito")
+def fav_foods(*foods):
+    print(foods)
+
+print(fav_foods("burrito", "ice cream")) # ('burrito', 'ice cream')
+print(fav_foods("ice cream", "burrito")) # 'Invalid! First argument must be burrito'
+
+@ensure_first_arg_is(10)
+def add_to_ten(num1, num2):
+    return num1 + num2
+
+print(add_to_ten(10, 12)) # 12
+print(add_to_ten(1, 2)) # 'Invalid! First argument must be 10'
+
+
+
+
+# Example 6:  Enforcing Types whatever function we define
+def enforce(*types):
+    def decorator(f):
+        def new_func(*args, **kwargs):
+            #convert args into something mutable   
+            newargs = []        
+            for (a, t) in zip(args, types):
+                # following is type casted args
+                newargs.append( t(a)) #feel free to have more elaborated convertion
+            return f(*newargs, **kwargs)
+        return new_func
+    return decorator
+
+@enforce(str, int)
+def repeat_msg(msg, times):
+	for time in range(times):
+		print(msg)
+
+@enforce(float, float)
+def divide(a,b):
+	print(a/b)
+# repeat_msg("hello", '5')
+divide('1', '4')
+
+
+
+
+# Example 7: Create a Decorator that makes a function delay to execute
 from functools import wraps
 from time import sleep
 
@@ -123,6 +230,11 @@ def delay(timer):
         return wrapper
     return inner
 
+@delay(5)
+def mul_1(num1, num2):
+    return num1*num2
+
+print(mul_1(5, 7))   # Unauthorized
 
 
 # python "py_ch9_3_4_args_&_DcRTR.py"
