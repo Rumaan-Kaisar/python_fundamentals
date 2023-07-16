@@ -76,16 +76,36 @@ def do_something_bad(user):
 
 
 
+
 # -----------------    DOCTESTS    -----------------
+# Remember the "DOCSTRING", which is used to provide documnetation to a function
+# We can use this "DOCSTRING" for testing
+	# Python can running and parsing those test code for us
+	# We have to write our code in a very particualar way
+
+# DOCTESTs:
+	# We can write tests for functions inside of the docstring 
+	# REPL-kind: Write code that looks like it's inside of a REPL
+	# Covers both: It is a Human-Readable Documentation and also it runs as TEST
 
 
 
 
+# Example 3: Following is a demo of DOCTEST pattern
+def add(x, y):
+	"""add together x and y
 
+	>>> add (1, 2)
+	3
 
+	>>> add ( 8 , "hi")
+	Traceback (most recent call last):
+	...
+	TypeError: unsupported operand type(s) for + :	'int' and 'str'
+	"""
+# NOTE: It shoud match the "INPUT - >>>" and "OUTPUT" - REPL
 
-# Example 2
-
+=========     1:27
 
 
 
