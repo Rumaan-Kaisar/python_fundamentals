@@ -88,6 +88,8 @@ def do_something_bad(user):
 	# REPL-kind: Write code that looks like it's inside of a REPL
 	# Covers both: It is a Human-Readable Documentation and also it runs as TEST
 
+# >>> called "MINGLING-SYNTAX" 
+
 
 
 
@@ -105,22 +107,111 @@ def add(x, y):
 	"""
 # NOTE: It shoud match the "INPUT - >>>" and "OUTPUT" - REPL
 
-=========     1:27
 
 
 
-# ------------    Doctest demo    ------------
+# Example 4: How to execute a DOCTEST.
 def add(a, b):
 	"""
+	>>> add(2, 2)
+	4
 	>>> add(2, 3)
 	5
 	>>> add(100,200)
 	300
 	"""
-	return a + b
+	# return a + b
+	return a*b # Returns DOCTEST ERR
 
+
+# -----------    Execution of DOCTEST in CLI    -----------
+# python -m doctest -v file_name.py
+# python -m doctest -v test.py
+
+
+# Running with "a*b" instead of "a+b"
+H:\shared_docs\codes_py\py_ch_13_testing>python -m doctest -v test.py
+Trying:
+    add(2, 2)
+Expecting:
+    4
+ok
+Trying:
+    add(2, 3)
+Expecting:
+    5
+**********************************************************************
+File "H:\shared_docs\codes_py\py_ch_13_testing\test.py", line 33, in test.add
+Failed example:
+    add(2, 3)
+Expected:
+    5
+Got:
+    6
+Trying:
+    add(100,200)
+Expecting:
+    300
+**********************************************************************
+File "H:\shared_docs\codes_py\py_ch_13_testing\test.py", line 35, in test.add
+Failed example:
+    add(100,200)
+Expected:
+    300
+Got:
+    20000
+1 items had no tests:
+    test
+**********************************************************************
+1 items had failures:
+   2 of   3 in test.add
+3 tests in 2 items.
+1 passed and 2 failed.
+***Test Failed*** 2 failures.
+
+
+
+
+# Example 5: Following DOCTEST passes all cases
+def muLt(n, m):
+	""" 
+	>>> muLt(5, 6)
+	30
+	>>> muLt(0.5, 0.5)
+	0.25
+	"""
+	return n*m
+
+# CLI>>> python -m doctest -v test.py
+
+Trying:
+    muLt(5, 6)
+Expecting:
+    30
+ok
+Trying:
+    muLt(0.5, 0.5)
+Expecting:
+    0.25
+ok
+1 items had no tests:
+    test
+1 items passed all tests:
+   2 tests in test.muLt
+2 tests in 2 items.
+2 passed and 0 failed.
+Test passed.
+
+
+
+
+
+# Example 6: Folowing code written wwith TDD
 def double(values):
 	""" double the values in a list
+
+	Note: we have to mimic exat same REPL output, eg: [2,4,6,8] instead of [2, 4, 6, 8]
+			(no-space) will cause Fail the case
 
 	>>> double([1,2,3,4])
 	[2, 4, 6, 8]
@@ -131,14 +222,32 @@ def double(values):
 	>>> double(['a', 'b', 'c'])
 	['aa', 'bb', 'cc']
 
+	Note: we have to copy exat same ERR msg
 	>>> double([True, None])
 	Traceback (most recent call last):
 		...
 	TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
 	"""
+	# TDD
+	# return []
 	return [2 * element for element in values]
 
-# Doctests can only compare to single quoted strings
+
+
+
+# ----------------     NOTE : Issues with doctests     ----------------
+
+	# Syntax is a little strange : It's kind of "Mine-field", we have to mimic exact REPL
+
+	# Clutters up our function code : Usually small functions get longer
+
+	# Lacks many features of larger testing: We have to replicate similar test for different functions
+	# 	using unittest will help on this, we cab run same kind of test for different functions
+
+	# Tests can be brittle
+
+
+# 1. Doctests can only compare to SINGLE QUOTED strings. Following cause test failure
 def say_hi():
 	"""
 	>>> say_hi()
@@ -146,8 +255,10 @@ def say_hi():
 	"""
 	return "hi"
 
-# Watch out for whitespace!
-# (There's a trailing space on line 42)
+
+
+# 2. Watch out for whitespace!
+# (There's a trailing space on line "True ")
 def true_that():
 	"""
 	>>> true_that()
@@ -155,7 +266,9 @@ def true_that():
 	"""
 	return True
 
-# Order of keys in dicts matters in doctests
+
+
+# 3. Order of keys in dicts matters in doctests
 def make_dict(keys):
 	"""
 	>>> make_dict(['a','b'])
@@ -163,7 +276,7 @@ def make_dict(keys):
 	"""
 	return {key: True for key in keys}
 
-
+# Above 3 tests wil fail Even-if they look ok!!! We have to mimic REPL
 
 
 
