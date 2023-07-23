@@ -411,89 +411,223 @@ OK
 
 
 
-11:22
+
 # -----------------    COMMENTING the Tests    -----------------
+
 # Previously, if all the tests passed, we've not much info, so adding comment is helpful
+    # We'll add "DOCSTRINGS" to our "TEST-FUNCTIONS"
+    # To see the comments, we run in CLI :
+
+        #   python name_of_test_file.py -v
+        #   python activities_tests.py -v
+
+""" 
+    test_eat_healthy (__main__.ActivityTests) ... ok
+    test_eat_unhealthy (__main__.ActivityTests) ... ok
+    test_long_nap (__main__.ActivityTests) ... ok
+    test_short_nap (__main__.ActivityTests) ... ok
+"""
+
+
+# in activities.py
+def eat(food, is_healthy):
+    ending = "because YOLO!"
+    # make different ending if is_healthy=True    
+    if is_healthy:
+        ending = "it makes my bdy a Tmpl"
+        
+    return f"I'm eating {food}, {ending}"
+
+def nap(no_of_hours):
+    if (no_of_hours >= 2):
+        return "Ugh I overslept!"
+    else:
+        return "Felling Good!"
 
 
 
-
-
+# in tests.py
 import unittest
-from activities import eat, nap, is_funny, laugh
+from activities import eat, nap
 
 class ActivityTests(unittest.TestCase):
     def test_eat_healthy(self):
-    	"""eat should have a positive message for healthy eating"""
-    	self.assertEqual(
-			eat("broccoli", is_healthyTrue,
-			"I'm eating broccoli, because my body is a temple"
-    	)
+        """eat should have a positive message for healthy eating"""
+        self.assertEqual(eat("broccoli", is_healthy=True), "I'm eating broccoli, it makes my bdy a Tmpl")
+
+    # EACH assertion needs its own function for testing
     def test_eat_unhealthy(self):
-    	"""eat should indicate you've given up for eating unhealthy"""
-    	self.assertEqual(
-			eat("pizza", is_healthy=False),
-			"I'm eating pizza, because YOLO!"
-    	)
-    def test_eat_healthy_boolean(self):
-    	"""is_healthy must be a bool"""
-    	with self.assertRaises(ValueError):
-    		eat("pizza", is_healthy="who cares?")
+        """eat should indicate you've given up for eating unhealthy"""
+        self.assertEqual(eat("pizza", is_healthy=False), "I'm eating pizza, because YOLO!")
 
     def test_short_nap(self):
-    	"""short naps should be refreshing"""
-    	self.assertEqual(
-    		nap(1),
-    		"I'm feeling refreshed after my 1 hour nap"
-    	)
+        """short naps should be refreshing"""
+        self.assertEqual(nap(1), "Felling Good!")
+
     def test_long_nap(self):
-    	"""long naps should be discouraging"""
-    	self.assertEqual(
-    		nap(3), "Ugh I overslept.  I didn't mean to nap for 3 hours!"
-    	)
-    def test_is_funny_tim(self):
-    	self.assertEqual(is_funny("tim"), False)
-    	# self.assertFalse(is_funny("tim"), "tim should not be funny")
+        """long naps should be discouraging"""
+        self.assertEqual(nap(3), "Ugh I overslept!")
 
-    def test_is_funny_anyone_else(self):
-    	"""anyone else but tim should be funny"""
-    	self.assertTrue(is_funny("blue"), "blue should be funny")
-    	self.assertTrue(is_funny("tammy"), "tammy should be funny")
-    	self.assertTrue(is_funny("sven"), "sven should be funny")
-    
-    def test_laugh(self):
-    	"""laugh returns a laughing string"""
-    	self.assertIn(laugh(), ('lol', 'haha', 'tehehe'))
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     unittest.main()
 
+# try to run tests.py: python activities_tests.py -v
+
+""" 
+H:\shared_docs\codes_py\py_ch_13_testing>python activities_tests.py -v
+test_eat_healthy (__main__.ActivityTests)
+eat should have a positive message for healthy eating ... ok
+test_eat_unhealthy (__main__.ActivityTests)
+eat should indicate you've given up for eating unhealthy ... ok
+test_long_nap (__main__.ActivityTests)
+long naps should be discouraging ... ok
+test_short_nap (__main__.ActivityTests)
+short naps should be refreshing ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.006s
+
+OK
+"""
 
 
-from random import choice
 
+
+# -----------------    Other UNITTEST asstertions    -----------------
+# following are some common types of assertions of unittest
+
+            # assertEqual(a, b) 
+            # assertNotEqual(a, b) 
+            # assertTrue(x) 
+            # assertFalse(x) 
+
+# cosider following example
+
+# in activities.py
 def eat(food, is_healthy):
-    if not isinstance(is_healthy, bool):
-        raise ValueError("is_healthy must be a boolean")
     ending = "because YOLO!"
+    # make different ending if is_healthy=True    
     if is_healthy:
-        ending = "because my body is a temple"
+        ending = "it makes my bdy a Tmpl"
+        
     return f"I'm eating {food}, {ending}"
 
+def nap(no_of_hours):
+    if (no_of_hours >= 2):
+        return "Ugh I overslept!"
+    else:
+        return "Felling Good!"
 
-def nap(num_hours):
-    if num_hours >= 2:
-        return f"Ugh I overslept.  I didn't mean to nap for {num_hours} hours!"
-    return f"I'm feeling refreshed after my {num_hours} hour nap"
-
-
+# -------   new code   -------
 def is_funny(person):
-    if person is 'tim':
-        return False
-    returnTrue
-
-def laugh():
-    return choice(('lol', 'haha', 'tehehe'))
+    pass
 
 
+# in tests.py
+import unittest
+from activities import eat, nap, is_funny
 
+class ActivityTests(unittest.TestCase):
+    def test_eat_healthy(self):
+        """eat should have a positive message for healthy eating"""
+        self.assertEqual(eat("broccoli", is_healthy=True), "I'm eating broccoli, it makes my bdy a Tmpl")
+
+    # EACH assertion needs its own function for testing
+    def test_eat_unhealthy(self):
+        """eat should indicate you've given up for eating unhealthy"""
+        self.assertEqual(eat("pizza", is_healthy=False), "I'm eating pizza, because YOLO!")
+
+    def test_short_nap(self):
+        """short naps should be refreshing"""
+        self.assertEqual(nap(1), "Felling Good!")
+
+    def test_long_nap(self):
+        """long naps should be discouraging"""
+        self.assertEqual(nap(3), "Ugh I overslept!")
+
+    # new codes
+    def test_is_funny_tim(self):
+        """ Is tim funny? """
+        # self.assertEqual(is_funny("tim"), False)
+        # or we can use following
+            # Note: we can use message as argumnet
+        self.assertNotEqual(is_funny("tim"), "tim should not be funny!")
+
+        # Note: These are actually a little bit different. 
+            # 'assertFalse', 'assertNotEqual' are checking for 'False-y values', not just "False".
+
+    def test_is_funny_anyone_else(self):
+        """anyone else but tim should be funny"""
+        self.assertTrue(is_funny("blue"), "blue should be funny")
+        self.assertTrue(is_funny("tammy"), "tammy should be funny")
+        self.assertTrue(is_funny("sven"), "sven should be funny")
+
+
+if __name__ == "__main__": 
+    unittest.main()
+
+# try to run tests.py: python activities_tests.py -v
+
+""" 
+H:\shared_docs\codes_py\py_ch_13_testing>python activities_tests.py -v
+test_eat_healthy (__main__.ActivityTests)
+eat should have a positive message for healthy eating ... ok
+test_eat_unhealthy (__main__.ActivityTests)
+eat should indicate you've given up for eating unhealthy ... ok
+test_is_funny_anyone_else (__main__.ActivityTests)
+anyone else but tim should be funny ... FAIL
+test_is_funny_tim (__main__.ActivityTests)
+Is tim funny? ... ok
+test_long_nap (__main__.ActivityTests)
+long naps should be discouraging ... ok
+test_short_nap (__main__.ActivityTests)
+short naps should be refreshing ... ok
+
+======================================================================
+FAIL: test_is_funny_anyone_else (__main__.ActivityTests)
+anyone else but tim should be funny
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "H:\shared_docs\codes_py\py_ch_13_testing\activities_tests.py", line 36, in test_is_funny_anyone_else
+    self.assertTrue(is_funny("blue"), "blue should be funny")
+AssertionError: None is not true : blue should be funny
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.011s
+
+FAILED (failures=1)
+"""
+
+
+# Notice: there is one failure,
+
+    # Because, 'assertNotEqual' is checking for 'False-y values', and "None" is a fals-y value
+    # if we use "assertEqual", we'll get following messages with 2-failures
+        # Notice: "AssertionError: None != False"
+        # Hence 'assertEqual' is more safer
+
+
+# H:\shared_docs\codes_py\py_ch_13_testing>python activities_tests.py -v
+#             --------
+#             --------
+#             --------
+
+# ======================================================================
+# FAIL: test_is_funny_tim (__main__.ActivityTests)
+# Is tim funny?
+# ----------------------------------------------------------------------
+# Traceback (most recent call last):
+#   File "H:\shared_docs\codes_py\py_ch_13_testing\activities_tests.py", line 26, in test_is_funny_tim
+#     self.assertEqual(is_funny("tim"), False)
+# AssertionError: None != False
+
+# ----------------------------------------------------------------------
+# Ran 6 tests in 0.002s
+
+# FAILED (failures=2)
+
+
+
+
+    3:00
