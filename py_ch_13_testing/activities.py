@@ -1,3 +1,7 @@
+
+# this is the APP called "activities.py" that tested using "unittest" and built using "TDD"
+# We use "activities_tests.py" to test following APP
+
 import random
 def eat(food, is_healthy):
     # raise 'Value ERR' for is_healthy
