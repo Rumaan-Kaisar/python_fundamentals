@@ -502,6 +502,11 @@ OK
             # assertTrue(x) 
             # assertFalse(x) 
 
+            # assertIsNone(x) 
+            # assertIsNotNone(x)
+            # assertIn(a, b)
+            # assertNotln(a, b)
+
 # cosider following example
 
 # in activities.py
@@ -630,4 +635,140 @@ FAILED (failures=1)
 
 
 
-    3:00
+# Now lets correct activities.py
+def eat(food, is_healthy):
+    ending = "because YOLO!"
+    # make different ending if is_healthy=True    
+    if is_healthy:
+        ending = "it makes my bdy a Tmpl"
+        
+    return f"I'm eating {food}, {ending}"
+
+def nap(no_of_hours):
+    if (no_of_hours >= 2):
+        return "Ugh I overslept!"
+    else:
+        return "Felling Good!"
+
+# -------   new code   -------
+def is_funny(person):
+    if person is "tim": return False
+    return True
+
+# No FAILOURES
+# ----------------------------------------------------------------------
+# Ran 6 tests in 0.001s
+
+# OK
+
+
+
+
+
+# ------------------    more Assertions    ---------------------
+# Use randon values in an "assertion"
+    # self.assertIn(laugh(), ('lol', 'haha', 'tehehe'))
+
+
+# ----------------    Testing for Errors    -------------------
+# Use to ensure the occurence of certain "ERR" and "ERR-type"
+# ERR handling with assertion, use following pattern
+class SomeTests(unittest.TestCase): 
+    def testing_for_error(self):
+        """ testing for an error """
+        with self.assertRaises(IndexError): 
+            ls = [1, 2,3]
+            ls[100]
+
+
+
+# in activities.py
+import random
+def eat(food, is_healthy):
+    # raise 'Value ERR' for is_healthy
+    if not isinstance(is_healthy, bool) :
+        raise ValueError("Must be a Boolean")
+
+    ending = "because YOLO!"
+    # make different ending if is_healthy=True    
+    if is_healthy:
+        ending = "it makes my bdy a Tmpl"
+        
+    return f"I'm eating {food}, {ending}"
+
+def nap(no_of_hours):
+    if (no_of_hours >= 2):
+        return "Ugh I overslept!"
+    else:
+        return "Felling Good!"
+
+# -------   new code   -------
+def is_funny(person):
+    if person is "tim": return False
+    return True
+
+def laugh():
+    return random.choice(('lol', 'haha', 'tehehe'))
+
+
+
+# in tests.py
+import unittest
+from activities import eat, nap, is_funny, laugh
+
+class ActivityTests(unittest.TestCase):
+    def test_eat_healthy(self):
+        """eat should have a positive message for healthy eating"""
+        self.assertEqual(eat("broccoli", is_healthy=True), "I'm eating broccoli, it makes my bdy a Tmpl")
+
+    # EACH assertion needs its own function for testing
+    def test_eat_unhealthy(self):
+        """eat should indicate you've given up for eating unhealthy"""
+        self.assertEqual(eat("pizza", is_healthy=False), "I'm eating pizza, because YOLO!")
+
+    def test_short_nap(self):
+        """short naps should be refreshing"""
+        self.assertEqual(nap(1), "Felling Good!")
+
+    def test_long_nap(self):
+        """long naps should be discouraging"""
+        self.assertEqual(nap(3), "Ugh I overslept!")
+
+    # new codes
+    def test_is_funny_tim(self):
+        """ Is tim funny? """
+        self.assertEqual(is_funny("tim"), False)
+        # or we can use following
+            # Note: we can use message as argumnet
+        # self.assertNotEqual(is_funny("tim"), "tim should not be funny!")
+
+        # Note: These are actually a little bit different. 
+            # 'assertFalse', 'assertNotEqual' are checking for 'False-y values', not just "False".
+
+    def test_is_funny_anyone_else(self):
+        """anyone else but tim should be funny"""
+        self.assertTrue(is_funny("blue"), "blue should be funny")
+        self.assertTrue(is_funny("tammy"), "tammy should be funny")
+        self.assertTrue(is_funny("sven"), "sven should be funny")
+
+    # Use randon values in an "assertion"
+    def test_laugh(self):
+        """laugh returns a laughing string"""
+        self.assertIn(laugh(), ('lol', 'haha', 'tehehe'))
+
+    # ERR handling with assertion, it checks if the following ERR occurs
+    def test_eat_healthy_boolean(self):
+        """is_healthy must be a bool"""
+        with self.assertRaises(ValueError):
+            eat("pizza", is_healthy="who cares?")
+
+
+if __name__ == "__main__": 
+    unittest.main()
+
+# try to run tests.py: python activities_tests.py -v
+
+# ----------------------------------------------------------------------
+# Ran 8 tests in 0.010s
+
+# OK
