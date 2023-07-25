@@ -1,3 +1,7 @@
+
+# ---------    This is TEST    ----------  
+# We use following code to test "activities.py" app
+
 import unittest
 from activities import eat, nap, is_funny, laugh
 
