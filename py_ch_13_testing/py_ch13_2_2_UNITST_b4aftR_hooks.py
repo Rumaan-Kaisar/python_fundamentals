@@ -2,19 +2,40 @@
 # Courses: colt_py_bootcamps    300
 
 # -----------------------    Before and After Hooks    -----------------------
+# Useful for testing larger applications:
+    # sometimes we need some code to run 'before-test' and 'after-test'
 
+    # Whether adding new data to database
+    # creating fake data to use in testing:
+        # creating fake user account
+
+# Instead of creating all of these repeatedly to use everywhere, we can use "setUp" and "tearDown"
 
 
 # -----------------------    setup and tearDown    -----------------------
+    # setUp:
+    # For larger applications, you may want similar code/application state before running tests
+        # we put these in setUp, and it runs before every test metods
+        # 'setUp' runs before 'EACH' test method
 
-    # For larger applications, you may want similar application state before running tests
-    # 'setUp' runs BEFORE each test method
-    # 'tearDown' runs AFTER each test method
-    # Common use cases: adding/removing data from a test database, creating instances of a class
+    # tearDown:
+    # Similarly if we want a code to run after all of our tests, we use tearDown
+        # testing DATABASE:
+        # add data for testing, use "tearDown" to remove all the test data
+        # 'tearDown' runs AFTER each test method
+        # Common use cases: 
+            # adding/removing data from a test DATABASE, 
+            # creating instances of a class
+
+    # since we're not using databases, we only focus on "setUp"
 
 
 
-# Example:
+
+# Example: Following is a demo code. 
+    # "setUp" runs before 'test_first' and 'test_second'
+    # "tearDown" runs after 'test_first' and 'test_second'
+
 import unittest
 
 class SomeTests(unittest.TestCase):
@@ -39,7 +60,14 @@ class SomeTests(unittest.TestCase):
 
 
 
-# Example :
+# Example 1: Following we have a 'robot-app' we named the file: 'robot.py'
+                # and we also have 'robot_test.py' to test the 'robot-app'
+
+# robot.py
+    # each robot class have: name, battery, skill
+    # charge() charges the battery
+    # say_name() tells the name, and discharge the battery
+    # learn_skill() learns a skill (append to a list), and discharge the battery
 class Robot:
 	def __init__(self, name, battery=100, skills=[]):
 		self.name = name
@@ -63,7 +91,33 @@ class Robot:
 			return f"WOAH. I KNOW {new_skill.upper()}"
 		return "Insufficient battery. Please charge and try again"
 
-		
+
+
+# --------------    without "setUp"    --------------
+
+# robot_test.py
+    # following code tests the above app.
+
+    3:10    
+
+
+
+
+
+
+
+
+
+
+
+
+
+# robot_test.py
+    # following code tests the above app.
+    # notice the use of "setUp()"
+        # it runs before "EACH METHOD": 'test_charge()' and 'test_say_name()'
+
+# without "setUp"
 import unittest
 from robot import Robot
 
