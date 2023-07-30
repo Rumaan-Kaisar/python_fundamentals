@@ -65,7 +65,7 @@ class Deck:
         """ Returns a list of Cards """
         return self._deal(hand_size)
 
-    def shuffle(self):
+    def shuffle_card(self):
         if self.count() < 52:
             raise ValueError("Only full decks can be shuffled")
         random.shuffle(self.cards)
