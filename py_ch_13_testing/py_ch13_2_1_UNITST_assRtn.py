@@ -52,6 +52,8 @@
     # You can write unit tests encapsulated as classes that inherit from 'unittest.TestCase' 
     # This inheritance gives you access to many 'assertion helpers' that let you test the behavior of your functions 
     # You can run tests by calling unittest.main())
+    # symbols: F = fail, E = Error, . = pass
+        # e.g. "...FF..E.." means 2 Fails, 1 Error, 7 success of total 10 tests.
 
 
 
