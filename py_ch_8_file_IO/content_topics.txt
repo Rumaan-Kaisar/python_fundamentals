@@ -1,0 +1,17 @@
+
+
+
+Section Introduction
+Reading Text Files Open and Read
+Reading Files Seek and Cursors
+The With Statement
+Writing to Text Files
+File Modes
+
+
+py_ch8_1_intro_Open_Read.py
+py_ch8_2_FILIO_Seek_Cursors.py
+py_ch8_3_FILIO_with.py
+py_ch8_4_FILIO_Text.py
+py_ch8_5_FILIO_Modes.py
+
