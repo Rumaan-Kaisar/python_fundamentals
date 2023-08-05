@@ -83,53 +83,39 @@ print(f.seek(4))    # 4
 
 
 
-# ==========    review : full video & following    ========== 
-
-
-    3: 29
-
-
 # ---------------    readline()  and readlines()  ---------------
-# readline():
-Returns one line from the file
+# readline(): You can return one line by using Python File readline() Method
+    # It Returns one line from the file (i.e. untill \n "newline character")
 
-# You can return one line by using the readline() method
+    # You can also specified how many bytes from the line to return, by using the size parameter.
+""" 
+    Syntax:
+            file.readline(size)
 
-Python File readline() Method
+    parameters:
+        size: The number of bytes from the line to return. 
+        Default -1, which means the whole line.
 
-Example
-Read the first line of the file "demofile.txt":
-
-f = open("demofile.txt", "r")
-print(f.readline())
-Definition and Usage
-The readline() method returns one line from the file.
-
-You can also specified how many bytes from the line to return, by using the size parameter.
-
-Syntax
-file.readline(size)
-Parameter Values
-Parameter	Description
-size	Optional. The number of bytes from the line to return. Default -1, which means the whole line.
-More examples
-Example
-Call readline() twice to return both the first and the second line:
-
-f = open("demofile.txt", "r")
-print(f.readline())
-print(f.readline())
-Example
-Return only the five first bytes from the first line:
-
-f = open("demofile.txt", "r")
-print(f.readline(5))
+"""
 
 
 
 
+# Example 4: demo of readline(). Read the first line of the file "story.txt":
+f = open("story.txt", "r")
+print(f.readline())     # This short story is really short.
+
+# Call readline() twice to return both the first and the second line:
+print(f.readline())     # Now it's a little longer.
+print(f.readline())     # The end.
+
+# Return only the eight first bytes from the first line:
+print(f.readline(8))    # "print(f.readline(8))"
 
 
+
+
+# Example 5: CLI demo of readline() method
 >>> file.readline()
 'This short story is really short.\n 
 
@@ -144,42 +130,77 @@ print(f.readline(5))
 
 
 
-# readlines()
-Returns a list of lines from the file
-# Need to reset file position using seek(0)
 
-Python File readlines() Method
+# readlines(): Returns a 'list' of lines from the file
+    # Need to reset file position using seek(0)
 
-Example
-Return all lines in the file, as a list where each line is an item in the list object:
+""" 
+    The readlines() method returns a list containing each line in the file as a list item.
 
-f = open("demofile.txt", "r")
-print(f.readlines())
-Definition and Usage
-The readlines() method returns a list containing each line in the file as a list item.
+    Use the "hint" parameter to 'limit the number of lines' returned. 
+    If the total number of bytes returned exceeds the specified number, no more lines are returned.
 
-Use the hint parameter to limit the number of lines returned. If the total number of bytes returned exceeds the specified number, no more lines are returned.
-
-Syntax
-file.readlines(hint)
-Parameter Values
-Parameter	Description
-hint	Optional. If the number of bytes returned exceed the hint number, no more lines will be returned. Default value is  -1, which means all lines will be returned.
-More examples
-Example
-Do not return the next line if the total number of returned bytes ar more than 33:
-
-f = open("demofile.txt", "r")
-print(f.readlines(33))
+    Syntax:
+                file.readlines(hint)
+    Parameter:
+        hint: If the number of bytes returned exceed the hint number, no more lines will be returned.
+        Default value is  -1, which means all lines will be returned.
+"""
 
 
+
+
+# Example 6: demo of readlines(). Read the line of the file "story.txt": 
+            # 'as a list' where each line is an item in the list object:
+f = open("story.txt", "r")
+print(f.readlines())    # ['This short story is really short.\n', "Now it's a little longer.\n", 'The end.\n']
+
+# Do not return the next line if the total number of returned bytes ar more than 33:
+f.seek(0)   # resetting position
+print(f.readlines(33))  # ['This short story is really short.\n']
+
+
+
+
+# Example 7: CLI demo of readlines() method
 >>> file.seek(0)
 0
 >>> file.readlines()
 ['This short story is really short.\n', "Now it's a little longer\n", 'The end.']
 >>> file.read()
 ''
+>>> f.seek(0)   # resetting position
+0
+>>> print(f.readlines(50))
+['This short story is really short.\n', "Now it's a little longer.\n"]
 
 
 
+
+# --------------    Closing a File    --------------
+    # You can close a file with the 'close()' method
+    # You can check if a file is closed with the "closed" attribute
+    # Once closed, a file can't be read again
+    # Always close files - it frees up system resources!
+
+
+# --------------    Close: importance of closing an opened file    --------------
+# Note: 
+    # The stram is open, i.e. readind is goining on and 
+    # it can show the ongoing changes/modification of the opened file
+    # so its important to clase a opend file in python
+
+
+
+
+# Example 8: CLI demo of close() and 'closed'
+>>> f.read()
+''
+>>> f.closed    # check if the file is closed
+False
+>>> f.close()   # close the file
+>>> f.read()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: I/O operation on closed file.
 
