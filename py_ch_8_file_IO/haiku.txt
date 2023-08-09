@@ -1,6 +1,3 @@
 Writing files is great
 Here's akother line of text
-Closing now, goodbye!:)
-
- This is APPENDED!!!
-:)
+Closing now, goodbye!
