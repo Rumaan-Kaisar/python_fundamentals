@@ -1,10 +1,104 @@
 
 # Courses: colt_py_bootcamps    314
 
+# ---------------    CSV    ---------------
+# CSV: comma seperated values
+    # its a common format to represent/store data
+    # It works withh homogenous data that follows a pattern
+
+# Following is a demo of a CSV file: 'fighter.csv'
+""" 
+Name,Country,Height (in cm) 
+Ryu,Japan,175 
+Ken,USA,175 
+Chun-Li,China,165 
+Guile,USA,182 
+E. Honda,Japan,185 
+Dhalsim,India,176 
+Blanka,Brazil,192 
+Zangief,Russia,214
+"""
+
+
+# Reading CSV Files;
+    # CSV files are a common file format for tabular data 
+    # read(): We can read CSV files just like other text files 
+    # CSV module: Python has a built-in 'CSV' module to read/write CSVs more easily
+
+
+
+# Example 1: read a csv file using read()
+with open('fighters.csv') as fiL:
+    fiL.read()
+
+# We'll get a giant string as below
+'Name,Country,Height (in cm) \nRyu,Japan,175 \nKen,USA,175 \nChun-Li,China,165 \nGuile,USA,182 \nE. Honda,Japan,185 \nDhalsim,India,176 \nBlanka,Brazil,192 \nZangief,Russia,214'
+
+
 # THIS DOES READ THE FILE BUT IT DOESN'T PARSE IT!
 # BAD!!!!!!
 with open("fighters.csv") as file:
     data = file.read()
+
+
+
+
+# --------------    CSV module    --------------
+# There is two different ways to read using CSV module
+    # reader: returns each 'row' as a 'list'
+        # lets you iterate over rows of the CSV as lists DictReader
+
+    # dictReader: Returned as an Ordered Dictionery
+        # lets you iterate over rows of the CSV as OrderedDicts
+        # Keys are determined by the header row
+
+
+# using reader:
+from csv import reader 
+
+with open("fighters.csv") as file: 
+    csv_reader = reader(file)           # apply "reader"
+    for row in csv_reader:
+        # each row is a listl
+        print(row)
+
+"""  
+    ['Name', 'Country', 'Height (in cm) ']
+    ['Ryu', 'Japan', '175 ']
+    ['Ken', 'USA', '175 ']
+    ['Chun-Li', 'China', '165 ']
+    ['Guile', 'USA', '182 ']
+    ['E. Honda', 'Japan', '185 ']
+    ['Dhalsim', 'India', '176 ']
+    ['Blanka', 'Brazil', '192 ']
+    ['Zangief', 'Russia', '214']
+"""
+
+
+
+# using DictReader:
+from csv import DictReader 
+
+with open("fighters.csv") as file: 
+    csv_reader = DictReader(file)       # apply "DictReader"
+    for row in csv_reader:
+        # each row is an OrderedDict !
+        print(row)
+
+"""  
+    {'Name': 'Ryu', 'Country': 'Japan', 'Height (in cm) ': '175 '}
+    {'Name': 'Ken', 'Country': 'USA', 'Height (in cm) ': '175 '}
+    {'Name': 'Chun-Li', 'Country': 'China', 'Height (in cm) ': '165 '}
+    {'Name': 'Guile', 'Country': 'USA', 'Height (in cm) ': '182 '}
+    {'Name': 'E. Honda', 'Country': 'Japan', 'Height (in cm) ': '185 '}
+    {'Name': 'Dhalsim', 'Country': 'India', 'Height (in cm) ': '176 '}
+    {'Name': 'Blanka', 'Country': 'Brazil', 'Height (in cm) ': '192 '}
+    {'Name': 'Zangief', 'Country': 'Russia', 'Height (in cm) ': '214'}
+"""
+
+
+
+---:    5:13    :---
 
 # Using reader
 from csv import reader
