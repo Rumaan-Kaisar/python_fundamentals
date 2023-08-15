@@ -54,12 +54,14 @@ with open("fighters.csv") as file:
 
 
 # using reader:
+# it reaurns an "_csv.reader" object, which is an 'ITERATOR' and RUNS ONLY ONCE
 from csv import reader 
 
-with open("fighters.csv") as file: 
-    csv_reader = reader(file)           # apply "reader"
-    for row in csv_reader:
-        # each row is a listl
+with open("fighters.csv") as file:
+    # apply "reader" 
+    csv_reader = reader(file)   # reader() returns an "iterator" not a "list"
+    for row in csv_reader:      # RUNS ONLY ONCE
+        # each row is a list 
         print(row)
 
 """  
@@ -77,11 +79,14 @@ with open("fighters.csv") as file:
 
 
 # using DictReader:
+# DictReader() also returns an "iterator"
+    # Benifit: We dont need to think about "HEADER"
 from csv import DictReader 
 
 with open("fighters.csv") as file: 
-    csv_reader = DictReader(file)       # apply "DictReader"
-    for row in csv_reader:
+    # apply "DictReader" 
+    csv_reader = DictReader(file)       # DictReader() also returns an "iterator"
+    for row in csv_reader:          # RUNS ONLY ONCE
         # each row is an OrderedDict !
         print(row)
 
@@ -98,9 +103,8 @@ with open("fighters.csv") as file:
 
 
 
----:    5:13    :---
 
-# Using reader
+# Example 1: Using reader
 from csv import reader
 with open("fighters.csv") as file:
     csv_reader = reader(file)
@@ -110,14 +114,20 @@ with open("fighters.csv") as file:
     	# Use index to access data
     	print(f"{fighter[0]} is from {fighter[1]}") 
 
-# Example where data is cast into a list
+
+
+
+# Example 2: where data is cast into a list
 from csv import reader
 with open("fighters.csv") as file:
     csv_reader = reader(file)
     data = list(csv_reader)
     print(data)
 
-# Reading/Parsing CSV Using a DictReader:
+
+
+
+# Example 3: Reading/Parsing CSV Using a DictReader:
 from csv import DictReader
 with open("fighters.csv") as file:
     csv_reader = DictReader(file)
@@ -125,4 +135,21 @@ with open("fighters.csv") as file:
         # Each row is an OrderedDict!
         print(row['Name']) #Use keys to access data
 
-        
+
+
+
+
+# --------------    Other Delimiters    --------------
+# Seperators other than ',', e.g. '|' or '$'
+    # reader() accept a "delimiter" kwarg in case your data isn't separated by commas.
+
+
+
+# Example 4: working with seperator other tahn ','
+from csv import reader
+
+with open("example.csv") as file:
+    csv_reader = reader(file, delimiter="|") 
+    for row in csv_reader:
+        # each row is a list! 
+        print(row)
