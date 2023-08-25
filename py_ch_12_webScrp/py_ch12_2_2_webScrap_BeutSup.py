@@ -1,4 +1,4 @@
-# Courses: colt_py_bootcamps    327, 328
+# Courses: colt_py_bootcamps    327
 
 # ----------------    Beautiful soup    ----------------
 
@@ -48,7 +48,7 @@
 
 
 # ---------------    Navigating with CSS Selectors    ---------------
-# select - returns a list of elements matching a CSS selector
+# select() - returns a "list" of elements matching a CSS selector
 
 
 
