@@ -1,7 +1,4 @@
 
-# Courses: colt_py_bootcamps    86, 87
-
-
 # Courses: colt_py_bootcamps    332
 
 # ----------------    Beautiful Soup: Web Scraping Project    ----------------
