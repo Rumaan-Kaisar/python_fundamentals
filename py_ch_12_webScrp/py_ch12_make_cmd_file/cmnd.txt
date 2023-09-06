@@ -1,0 +1,20 @@
+
+Creating Your First Script CMD File
+Now that Notepad is open, create your first CMD script file by typing the same line you used in the CMD window into notepad: start "c:\windows\system32" notepad.exe
+
+Save the batch file to your desktop by selecting "Save As" from the File menu. Name the file "firstscript.cmd" and click "Save." Notepad script commands must be saved with the .cmd extension, rather than the default .txt extension.
+
+Double-click the new CMD file on your desktop. You will see the CMD window open for a fraction of a second and then close as Notepad is launched.
+
+This is hardly a useful script, since a desktop shortcut does the same thing.
+
+
+
+---------------  Command Saved into .cmd file    ---------------
+
+
+python pomodoro_main.py
+
+or 
+
+start "c:\windows\system32" notepad.exe
