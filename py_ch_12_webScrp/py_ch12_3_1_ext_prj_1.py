@@ -50,12 +50,5 @@ with open("blog_data.csv", "w") as csv_file:
         csv_writer.writerow([title, url, date])
         print(title, url, date)
 
-
-# -------- forbidden: problem ---------
-# items = soup.find_all("jet-listing-grid__item")
-# print(items)
-# articles = items[1].find_all("jet-listing-dynamic-field__content")
-# print(articles)
-
 # python py_ch12_3_1_ext_prj_1.py
 
