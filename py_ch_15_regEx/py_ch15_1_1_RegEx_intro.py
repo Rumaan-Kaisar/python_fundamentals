@@ -1,13 +1,4 @@
 
-################# FULL
-# copy:  
-#        
-#        
-
-################# (15-sep-23 for 16-sep-23)
-
-
-
 # Courses: colt_py_bootcamps    339. 340
 
 # it's not a python specific topic
