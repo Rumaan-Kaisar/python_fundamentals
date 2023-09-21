@@ -98,6 +98,16 @@ set_01 | set_02     # {1, 2, 3, 'v', 8, 'n', 'c', 'l', 'a'}
 # intersection (coomon in both sets): & as AND
 set_01 & set_02     # {2, 3, 'a'}
 
+# -----    Python code to get the difference between two sets    -----
+# using difference() between set A and set B
+A = {10, 20, 30, 40, 80}
+B = {100, 30, 80, 40, 60}
+print (A.difference(B))
+print (B.difference(A))
+# We can also use – operator 
+print (A - B)
+print (B - A)
+
 
 
 # coolect Uniques - Given the following variable
