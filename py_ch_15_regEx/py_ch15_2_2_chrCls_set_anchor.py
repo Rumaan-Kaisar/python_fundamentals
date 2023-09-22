@@ -1,5 +1,5 @@
 
-# Courses: colt_py_bootcamps    242, 243
+# Courses: colt_py_bootcamps    342, 343
 
 # ------------------ test string --------
 hello world aaabbbcccdddeeef ffggg 
@@ -66,5 +66,12 @@ She is 49 years old. I am 75 years old. He is 3 3.
     # 'the line has to end with a phone number' : '\d{3} \d{3}-?\d{4}$'
     # To search a phone nuber, nothing but in a single line
     # '^\d{3} \d{3}-?\d{4}$'  : means line statrt with a phone number and ends withs phone number
+    # only "*** ***-****" pattern (nothging else)
+    # useful to verify: "only email", "specific serial key pattern"
 
+
+
+# -----------    word boundery    -----------
+# selects the word between bounderies : (e.g. space, back-slash, new-line etc)
+    # selects only words: '\b\w+\b'
 
