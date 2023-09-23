@@ -42,6 +42,13 @@
 
 
 
-# 8:10
+# ---------    matching URLs    ---------
+https://pythex.org
+http://google.com
 
-# Courses: colt_py_bootcamps    86, 87
+# 'https?://[A-Za-z_-]+\.[A-Za-z]+'
+
+# However we can group the above, for better workflow in python.
+# '(https?://)([A-Za-z_-]+\.[A-Za-z]+)'
+
+
