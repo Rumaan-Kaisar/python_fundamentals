@@ -36,6 +36,77 @@ result = pattern.search('Call me at 415 555-4242!')
     # it gives us a "match-object"
 
 
-# 3:37
 
+
+# Example 1: 're' module demo
+import re
+# patrn = re.compile('\\d{3}')     # '\\' is used if 'r' is not used
+patrn = re.compile(r'\d{3} \d{3}-\d{4}')     # '\\' is used if 'r' is not used, for escape characters
+print(patrn)
+print(type(patrn))  # <class 're.Pattern'>
+
+>>> help(patrn)
+
+""" 
+Help on Pattern in module re object:
+class Pattern(builtins.object)
+ |  Compiled regular expression object.
+ |
+ |  Methods defined here:
+ |
+ |  __copy__(self, /)
+ |
+ |  __deepcopy__(self, memo, /)
+ |
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |
+ |  __ge__(self, value, /)
+ |      Return self>=value.
+ |
+ |  __gt__(self, value, /)
+ |      Return self>value.
+ |
+ |  __hash__(self, /)
+ |      Return hash(self).
+ |
+ |  __le__(self, value, /)
+ |      Return self<=value.
+ |
+ |  __lt__(self, value, /)
+ |      Return self<value.
+ """
+# '-- More --' means there is more information to display on this by pressing the Enter or space key.
+
+
+# ---------------    search()    ---------------
+    # Scan through string looking for a match, and return a corresponding match object instance.
+    #     Return None if no position in the string matches.
+
+    # we'll focus on the 'search' method
+
+rslt = patrn.search("cdfgdhjfg 12335t5v356")
+print(rslt)     # None
+
+rslt = patrn.search("call me at 123 456-6789")
+print(rslt)     # <re.Match object; span=(11, 23), match='123 456-6789'>
+
+# To view the match we use group() method
+rslt.group()    # '123 456-6789', returned as 'str'
+
+# It doesn't support finding 'more than one match'
+# if we have multiple matches group() only returns the first match
+rslt_2 = patrn.search("call me at 310 445-9876 or 310 234-9999")
+rslt_2.group()  # '310 445-9876'
+
+
+
+# ---------------    findall()    ---------------
+    # it returns the list of multiple matches
+rslt_3 = patrn.findall("call me at 310 445-9876 or 310 234-9999")   # returns a list obgect
+type(rslt_3)    # <class 'list'>
+print(rslt_3)   # returns a list directly ['310 445-9876', '310 234-9999']
+
+
+# 7:30
 
