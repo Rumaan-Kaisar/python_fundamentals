@@ -1,11 +1,11 @@
 
-################# FULL
+################# 348: FULL
 # copy:  
 #        
 #        
+################# (26-sep-23 for 27-sep-23)
 
-################# (15-sep-23 for 16-sep-23)
-
+# Courses: colt_py_bootcamps    348, 350
 
 
 # Courses: colt_py_bootcamps    339. 340
