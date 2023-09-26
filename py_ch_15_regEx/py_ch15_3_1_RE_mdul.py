@@ -108,5 +108,19 @@ type(rslt_3)    # <class 'list'>
 print(rslt_3)   # returns a list directly ['310 445-9876', '310 234-9999']
 
 
-# 7:30
+
+# ---------    COMPILE Once or Each time    ---------
+# we can pass a pattern as argument 
+    # if the pattern varies time to time
+    # in this case pattern compile each time
+    # prreviously we compiled the pattern ONCE
+
+compile_and_search = re.search(r'\d{3} \d{3}-\d{4}', "call me at 310 445-9876 or 310 234-9999")
+print(compile_and_search.group())
+
+compile_and_findAll = re.findall(r'\d{3} \d{3}-\d{4}', "call me at 310 445-9876 or 310 234-9999")
+print(compile_and_findAll)
+
+# It's a good practice to COMPILE the pattern once and then use it to find matches
+
 
