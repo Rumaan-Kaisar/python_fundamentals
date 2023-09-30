@@ -1,7 +1,9 @@
 
 # Courses: colt_py_bootcamps    348, 350
 
+
 # --------------    more regEx GROUPS    --------------
+
 # following regex is found online
     # it matches any kind of URLs
     
@@ -12,7 +14,7 @@
 # notice:
     # optional s in 'https'
     # . as escape char
-    # [A-za-z-]{2,256}  for DOMAIN NAME allowing 2 to 255 characters & dashes
+    # [A-za-z-]{2,256}  for Base-DOMAIN NAME allowing 2 to 255 characters & dashes
     # \.[a-z]{2,6} for .com, .net .io, from 2 to 6 letters
     # [-a-zA-Z0-9@:%_\+.~#?&//=]*  notice '*' at the end, it means OPTIONAL, 
         # its for URL directory/route, query-strings
@@ -20,7 +22,44 @@
     # notice the grouping
 
 
-2:00
+# Following Grouping will help to extruct:
+    # 'http' or 'https' protocols
+    # base domain
+    # query strings, other additional path/info
+import re
+url_regx = re.compile(r'(https?)://(www\.[A-za-z-]{2,256}\.[a-z]{2,6})([-a-zA-Z0-9@:%_\+.~#?&//=]*)')
+match = url_regx.search("http://www.example.net/serch/asssddc/qewf")
+print(match.group())    # prints the whole match
+print(match.groups())    # groups() wwill return the grouped url in tuple
+# ('http', 'www.example.net', '/serch/')
+
+print(match.group())    # prints the entire match
+print(match.group(0))    # also prints the entire match
+print(match.group(1))    # prints the index 0 of match
+print(match.group(2))    # prints the index 1 of match
+print(match.group(3))    # prints the index 2 of match
+print(f"Protocol: {match.group(1)}")
+print(f"Domain: {match.group(2)}")
+print(f"Everything Else: {match.group(3)}")
+
+
+
+# we can also do the Grouping for the 'phone' numbers
+    # to extract area-codes
+    # to validate
+
+
+
+# -------    INSTRUCTOR CODES    -------
+import re
+
+url_regex = re.compile(r'(https?)://(www\.[A-za-z-]{2,256}\.[a-z]{2,6})([-a-zA-Z0-9@:%_\+.~#?&//=]*)')
+match = url_regex.search("https://www.my-website.com/bio?data=blah&dog=yes")
+print(f"Protocol: {match.group(1)}")
+print(f"Domain: {match.group(2)}")
+print(f"Everything Else: {match.group(3)}")
+print(match.groups())
+print(match.group())
 
 
 
@@ -40,7 +79,13 @@ def parse_bytes(input):
     results = binary_regex.findall(input)
     return results
 
+parse_bytes("aefwe 10010000 dfbv 11110101")     # ['10010000', '11110101']
 
+
+
+
+
+# --------------    Symbolic Group Names    --------------
 
 
 # Example 2: Date Parsing
@@ -72,16 +117,6 @@ def parse_date(input):
 
 
 # -------    INSTRUCTOR CODES    -------
-# 348
-import re
-
-url_regex = re.compile(r'(https?)://(www\.[A-za-z-]{2,256}\.[a-z]{2,6})([-a-zA-Z0-9@:%_\+.~#?&//=]*)')
-match = url_regex.search("https://www.my-website.com/bio?data=blah&dog=yes")
-print(f"Protocol: {match.group(1)}")
-print(f"Domain: {match.group(2)}")
-print(f"Everything Else: {match.group(3)}")
-print(match.groups())
-print(match.group())
 
 
 # 350
