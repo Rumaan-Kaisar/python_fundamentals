@@ -86,6 +86,31 @@ parse_bytes("aefwe 10010000 dfbv 11110101")     # ['10010000', '11110101']
 
 
 # --------------    Symbolic Group Names    --------------
+# Lebeling Groups:
+    #               (?P<name>...)
+    #               (?P<label>[pattern])
+        
+        # accessing labeled group   match.group("label")
+
+    # e.g.          (?P<first>[A-Za-z]+)
+        # access:   match.group("first")
+
+    # Each 'group name' must be defined only ONCE
+
+
+# Matching names
+import re
+
+def parse_name(input):
+    name_regex = re.compile(r'^(Mr\.|Mrs\.|Ms\.|Mdme\.) (?P<first>[A-Za-z]+) (?P<last>[A-Za-z]+)$')
+    matches = name_regex.search(input)
+    print(matches.groups())
+    print(matches.group())
+    # accessing by LABEL
+    print(matches.group('first'))
+    print(matches.group('last'))
+
+parse_name("Mrs. Tilda Swinton")
 
 
 # Example 2: Date Parsing
@@ -112,25 +137,9 @@ def parse_date(input):
         }
     return None
 
-
-
-
-
-# -------    INSTRUCTOR CODES    -------
-
-
-# 350
-import re
-
-def parse_name(input):
-	name_regex = re.compile(r'^(Mr\.|Mrs\.|Ms\.|Mdme\.) (?P<first>[A-Za-z]+) (?P<last>[A-Za-z]+)$')
-	matches = name_regex.search(input)
-	print(matches.group())
-	print(matches.group('first'))
-	print(matches.group('last'))
-
-parse_name("Mrs. Tilda Swinton")
+print(parse_date("45,45,7899"))
 
 
 
 # python py_ch15_4_1_URLs_SmbGrpNames.py
+
