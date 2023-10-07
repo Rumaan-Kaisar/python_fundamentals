@@ -2,6 +2,78 @@
 # Courses: colt_py_bootcamps    355
 
 
+# we've use sub() for substitute and replace
+    # now we use it for swap items
+
+    # we have a list of movie/book title with publishing year
+        # we wand the year at the first og the title
+
+import re
+titles = [
+    "Significant Others (1987)",
+    "Tales of the City (1978)",
+    "The Days of Anna Madrigal (2014)",
+    "Mary Ann in Autumn (2010)",
+    "Further Tales of the City (1982)",
+    "Babycakes (1984)",
+    "More Tales of the City (1980)",
+    "Sure of You (1989)",
+    "Michael Tolliver Lives (2007)"
+]
+
+#  if we use built-in sort method, it will sort the list alphabetically
+    # but we want to sort w.r.t. publishing year
+        # e.g "1987 - Significant Others"
+
+titles.sort()
+# print(titles)
+
+# pattern (attempt 1): groups "title" & 'date'
+pattern = re.compile(r'^[\w ]+ \(\d{4}\)')
+# Notice the extra sapce '[\w ]+ '
+    # if we use '[\w ]+' with no extara space, it will match 
+        # 'Significant Others ' untill the '('
+        # so after we swap, we'll endup a file name with space at the end
+        # Grouping will help us to better organize
+
+# pattern (attempt 2): groups "title" & 'date'
+pattern = re.compile(r'(^[\w ]+) (\(\d{4}\))')
+result = pattern.sub("\g<2> - \g<1>", titles[0])
+print(result)   # (1987) - Significant Others
+
+# pattern (attempt 3): groups "title" & 'date'
+    # to avoid () we group only the 4-digits
+pattern = re.compile(r'(^[\w ]+) \((\d{4})\)')
+result = pattern.sub("\g<2> - \g<1>", titles[0])
+print(result)   # 1987 - Significant Others
+
+
+# pattern (attempt 4): now we run through all the titles
+fixed_titles = []
+pattern = re.compile(r'(^[\w ]+) \((\d{4})\)')
+
+for book in titles:
+    result = pattern.sub("\g<2> - \g<1>", book)
+    fixed_titles.append(result)
+
+fixed_titles.sort()
+print(fixed_titles)
+
+
+# pattern (attempt 5): using the group names
+fixed_titles = []
+pattern = re.compile(r'(?P<title>^[\w ]+) \((?P<date>\d{4})\)')
+
+for book in titles:
+    result = pattern.sub("\g<date> - \g<title>", book)
+    fixed_titles.append(result)
+
+fixed_titles.sort()
+print(fixed_titles)
+
+
+
+
 # -------------    instructor codes    -------------
 
 import re
