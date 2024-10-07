@@ -64,6 +64,35 @@ with open("pets.pickle", "rb") as file:
 
 
 
+# -=-=-=-    Compress the pickle    -=-=-=-
+import pickle
+import zlib
+# We could use different methods for compressing, for example: zlib, gzip, bz2.
+
+data = {'key': 'value'}
+
+# Compress the pickle file using zlib
+with open('compressed_file.pkl', 'wb') as f:
+    compressed_data = zlib.compress(pickle.dumps(data))
+    f.write(compressed_data)
+
+# To decompress and load a pickle file that was compressed with zlib
+# Open the compressed file
+with open('compressed_file.pkl', 'rb') as f:
+    compressed_data = f.read()
+    data = pickle.loads(zlib.decompress(compressed_data))
+
+print(data)
+
+""" 
+    pickle.dumps() serializes (pickles) the data into bytes.
+    zlib.compress() compresses the serialized data.
+    zlib.decompress() decompresses the data.
+    pickle.loads() deserializes (unpickles) the decompressed data back into its original form. 
+"""
+
+
+
 
 # -------------------    JSON Pickling    -------------------
 # ----------    json    ----------
